@@ -1,0 +1,1212 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"me",
+				"metadata_display_name"
+			],
+			[
+				"mod",
+				"model_parts"
+			],
+			[
+				"son",
+				"songs_to_create"
+			],
+			[
+				"model",
+				"model_parts"
+			],
+			[
+				"mode",
+				"model_part"
+			],
+			[
+				"xml",
+				"xml_parts"
+			],
+			[
+				"to",
+				"to_model_part"
+			],
+			[
+				"xm",
+				"xml_parts"
+			],
+			[
+				"loca",
+				"local_path"
+			],
+			[
+				"loc",
+				"local_folder"
+			],
+			[
+				"dro",
+				"dropbox_path"
+			],
+			[
+				"drop",
+				"dropbox_folder"
+			],
+			[
+				"des",
+				"description"
+			],
+			[
+				"conte",
+				"context_data"
+			],
+			[
+				"ref",
+				"reference"
+			],
+			[
+				"file",
+				"file_content"
+			],
+			[
+				"di",
+				"disappeared_field_name"
+			],
+			[
+				"rev",
+				"reverse_lazy"
+			],
+			[
+				"song",
+				"songs_to_delete"
+			],
+			[
+				"dis",
+				"disappeared_id"
+			],
+			[
+				"disappeared_",
+				"disappeared_by_id"
+			],
+			[
+				"fou",
+				"found_by_title"
+			],
+			[
+				"class",
+				"classmethod"
+			],
+			[
+				"fil",
+				"files_manager"
+			],
+			[
+				"files",
+				"files_manager"
+			],
+			[
+				"foun",
+				"FoundSong"
+			],
+			[
+				"met",
+				"metadata_list"
+			],
+			[
+				"ma",
+				"max_length"
+			],
+			[
+				"re",
+				"remove_file"
+			],
+			[
+				"rem",
+				"remove_dir"
+			],
+			[
+				"dropbo",
+				"dropbox_client"
+			],
+			[
+				"ba",
+				"local_base_dir"
+			],
+			[
+				"fold",
+				"folder_on_dropbox"
+			],
+			[
+				"get",
+				"get_songs"
+			],
+			[
+				"cou",
+				"counter"
+			],
+			[
+				"upd",
+				"updated"
+			],
+			[
+				"as",
+				"as_bytes_file"
+			],
+			[
+				"fir",
+				"first_note"
+			],
+			[
+				"fi",
+				"first_note_midi"
+			],
+			[
+				"pa",
+				"parts_kwargs"
+			],
+			[
+				"par",
+				"part_metadata"
+			],
+			[
+				"env",
+				"env_dict"
+			],
+			[
+				"python",
+				"python3"
+			],
+			[
+				"base",
+				"base_folder"
+			],
+			[
+				"bas",
+				"base_folder_length"
+			],
+			[
+				"form",
+				"form_valid"
+			],
+			[
+				"requ",
+				"request"
+			],
+			[
+				"dir",
+				"dir_path"
+			],
+			[
+				"wal",
+				"walk_recurs"
+			],
+			[
+				"wa",
+				"walk_one_level"
+			],
+			[
+				"DRO",
+				"DROPBOX_TOKEN_SESSION_KEY"
+			],
+			[
+				"key",
+				"key_suffix"
+			],
+			[
+				"frm",
+				"from_env"
+			],
+			[
+				"DEF",
+				"DEFAULT_SONG_FOLDER"
+			],
+			[
+				"from",
+				"from_env"
+			],
+			[
+				"requi",
+				"requirements"
+			],
+			[
+				"rea",
+				"readme_file"
+			],
+			[
+				"app",
+				"application"
+			],
+			[
+				"EM",
+				"EMAIL_SETTINGS"
+			],
+			[
+				"EMAIL_U",
+				"EMAIL_HOST_USER"
+			],
+			[
+				"EMAIL",
+				"EMAIL_HOST"
+			],
+			[
+				"DEFAU",
+				"DEFAULT_SECRET_KEY"
+			],
+			[
+				"date",
+				"date_modified"
+			],
+			[
+				"Song",
+				"SongListView"
+			],
+			[
+				"disp",
+				"display_notes"
+			],
+			[
+				"Base",
+				"BaseLoggedViewMixin"
+			],
+			[
+				"t",
+				"template_response"
+			],
+			[
+				"lo",
+				"login"
+			],
+			[
+				"templat",
+				"template_name"
+			],
+			[
+				"BA",
+				"BaseViewMixin"
+			],
+			[
+				"ROO",
+				"ROOT_DIR"
+			],
+			[
+				"ind",
+				"index_in_song"
+			],
+			[
+				"un",
+				"unnamed_parts"
+			],
+			[
+				"name_",
+				"name_xml"
+			],
+			[
+				"cre",
+				"create_song_from_path"
+			],
+			[
+				"part",
+				"parts"
+			],
+			[
+				"sco",
+				"score_part"
+			],
+			[
+				"sec",
+				"sections"
+			],
+			[
+				"parse",
+				"parsed_xml"
+			],
+			[
+				"get_",
+				"get_xml_part"
+			],
+			[
+				"ex",
+				"explore_folder"
+			],
+			[
+				"delete",
+				"deleted_songs"
+			],
+			[
+				"new",
+				"new_in_folder"
+			],
+			[
+				"mov",
+				"moved_songs"
+			],
+			[
+				"id",
+				"id_file"
+			],
+			[
+				"ne",
+				"new_songs"
+			],
+			[
+				"db",
+				"db_paths"
+			],
+			[
+				"ol",
+				"old_songs"
+			],
+			[
+				"s",
+				"songs"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"old",
+				"old_objects"
+			],
+			[
+				"songs",
+				"songs_in_folder"
+			],
+			[
+				"section",
+				"Section"
+			],
+			[
+				"ope",
+				"open_files"
+			],
+			[
+				"exp",
+				"export_as"
+			],
+			[
+				"mid",
+				"midi_val"
+			],
+			[
+				"chords",
+				"chords_notes"
+			],
+			[
+				"chor",
+				"chord_val"
+			],
+			[
+				"no",
+				"chords_notes"
+			],
+			[
+				"tri",
+				"trigger_cb"
+			],
+			[
+				"not",
+				"notes"
+			],
+			[
+				"pre",
+				"prev_precise_angle"
+			],
+			[
+				"prev",
+				"prev_precise_angle"
+			],
+			[
+				"cont",
+				"continuous_angle"
+			],
+			[
+				"base_",
+				"base_old"
+			],
+			[
+				"Music",
+				"MusicTip"
+			],
+			[
+				"_call",
+				"_call_callback"
+			],
+			[
+				"call",
+				"call_callbacks"
+			],
+			[
+				"sti",
+				"stick_on"
+			],
+			[
+				"st",
+				"stick_on"
+			],
+			[
+				"but",
+				"buttons_cb"
+			],
+			[
+				"add",
+				"add_callback"
+			],
+			[
+				"on",
+				"onoff"
+			],
+			[
+				"i",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"cb",
+				"cb_key"
+			],
+			[
+				"num",
+				"num_buttons"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"ap",
+				"appleChar"
+			],
+			[
+				"a",
+				"appleChar"
+			],
+			[
+				"dra",
+				"drawPixel"
+			],
+			[
+				"en",
+				"endGame"
+			],
+			[
+				"dr",
+				"drawPixel"
+			],
+			[
+				"apl",
+				"apple"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"sn",
+				"snakeChar"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"pos",
+				"positions"
+			],
+			[
+				"le",
+				"length"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tala.py",
+			"settings":
+			{
+				"buffer_size": 6776,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "kivycatalog.kv",
+			"settings":
+			{
+				"buffer_size": 4695,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 247.0,
+		"last_filter": "kiv",
+		"selected_items":
+		[
+			[
+				"kiv",
+				"Set Syntax: Kivy Syntax"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"upper",
+				"Convert Case: Upper Case"
+			],
+			[
+				"pcl",
+				"Package Control: List Packages"
+			],
+			[
+				"markd",
+				"Markdown HTML Preview"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"shell",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"djang",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markprev",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"pce",
+				"Package Control: Enable Package"
+			],
+			[
+				"pcdis",
+				"Package Control: Disable Package"
+			],
+			[
+				"pc",
+				"Package Control: Disable Package"
+			],
+			[
+				"pcd",
+				"Package Control: Disable Package"
+			],
+			[
+				"plic",
+				"Package Control: List Packages"
+			],
+			[
+				"pcr",
+				"Package Control: Remove Package"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"ss c",
+				"Set Syntax: C"
+			],
+			[
+				"",
+				"Package Control: Remove Package"
+			],
+			[
+				"pac	",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 231.0,
+		"history":
+		[
+			"sys.path",
+			"import sys",
+			"sys",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/mario/code/sarah/tala",
+		"/Users/mario/Envs/tala/lib/python3.5/site-packages/kivy"
+	],
+	"file_history":
+	[
+		"/Users/mario/code/sarah/tala/tala.sublime-project",
+		"/Users/mario/code/poireau/requirements/base.txt",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/models.py",
+		"/Users/mario/code/poireau/poireau/songs/templates/songs/detail.html",
+		"/Users/mario/code/poireau/poireau/songs/views/song.py",
+		"/Users/mario/code/poireau/poireau/songs/models/song.py",
+		"/Users/mario/code/poireau/poireau/songs/models/part.py",
+		"/Users/mario/code/poireau/poireau/songs/templates/songs/compare.html",
+		"/Users/mario/code/poireau/chansons/#Archives/Final Fantasy - Chocobo's theme/Chocobo.xml",
+		"/Users/mario/code/poireau/poireau/songs/utils/xml_song.py",
+		"/Users/mario/code/poireau/scripts/compilemessages.sh",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/poireau/poireau/songs/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/poireau/poireau/songs/templates/songs/list.html",
+		"/Users/mario/code/poireau/poireau/songs/views/discover.py",
+		"/Users/mario/Dropbox/Poireau/Medley Nintendo_/Medley Nintendo.xml",
+		"/Users/mario/code/poireau/.env",
+		"/Users/mario/Dropbox/Poireau/#Archives/Cobra/Cobra.xml",
+		"/Users/mario/code/poireau/poireau/songs/forms.py",
+		"/Users/mario/Dropbox/Poireau/Pokémon/Pokémon.xml",
+		"/Users/mario/code/poireau/.env.default",
+		"/Users/mario/code/poireau/poireau/common/settings.py",
+		"/Users/mario/code/poireau/manage.py",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/migrations/0001_initial.py",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/views.py",
+		"/Users/mario/code/poireau/poireau/common/utils.py",
+		"/Users/mario/code/poireau/poireau/common/urls.py",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/urls.py",
+		"/Users/mario/code/poireau/poireau/songs/urls.py",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/__init__.py",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/utils.py",
+		"/Users/mario/code/poireau/.gitignore",
+		"/Users/mario/code/poireau/requirements/development.txt",
+		"/Users/mario/code/poireau/poireau/dropbox_sync/admin.py",
+		"/Users/mario/code/poireau/poireau/users/admin.py",
+		"/Users/mario/code/poireau/poireau/singers/tests.py",
+		"/Users/mario/code/backup/explorer.py",
+		"/Users/mario/code/premailer/backup/explorer.py",
+		"/Users/mario/code/poireau/poireau/songs/utils/explorer.py",
+		"/Users/mario/code/poireau/poireau/songs/utils/dropbox.py",
+		"/Users/mario/code/poireau/setup.py",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/mario/code/poireau/poireau/songs/utils/__init__.py",
+		"/Users/mario/code/poireau/poireau/songs/views/dropbox.py",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/mario/code/poireau/requirements/production.txt",
+		"/Users/mario/code/poireau/poireau/users/models.py",
+		"/Users/mario/code/poireau/README.md",
+		"/Users/mario/code/poireau/CHANGELOG.md",
+		"/Users/mario/code/poireau/poireau/common/views.py",
+		"/Users/mario/code/poireau/poireau/common/templates/base/base.html",
+		"/Users/mario/code/poireau/poireau/common/templates/base/logged_base.html",
+		"/Users/mario/code/fr2csv/.travis.yml",
+		"/Users/mario/code/negitachi.sublime-project",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/mario/code/poireau/pylintrc",
+		"/Users/mario/code/poireau/poireau/common/templates/base/form.html",
+		"/Users/mario/code/poireau/poireau/songs/templates/songs/discover/folder.html",
+		"/Users/mario/code/poireau/poireau/songs/templates/songs/discover.html",
+		"/Users/mario/code/poireau/poireau/common/serializers.py",
+		"/Users/mario/Downloads/dropbox-2.2.0/setup.py",
+		"/Users/mario/code/djangocon.md",
+		"/Users/mario/code/poireau/version.txt",
+		"/Users/mario/code/poireau/TUTORIAL.md",
+		"/Users/mario/code/poireau/Procfile",
+		"/Users/mario/code/poireau/runtime.txt",
+		"/Users/mario/code/poireau/requirements.txt",
+		"/Users/mario/code/poireau/poireau/common/wsgi.py",
+		"/Users/mario/code/poireau/.env-template",
+		"/Users/mario/code/poireau/dev-requirements.txt",
+		"/Users/mario/code/poireau/poireau/common/local_settings.template.py",
+		"/Users/mario/code/poireau/poireau/singers/models.py",
+		"/Users/mario/code/poireau/scripts/ubuntu_install.sh",
+		"/Users/mario/code/poireau/tutorial.md",
+		"/Users/mario/code/fr2csv/ubuntu_install.sh",
+		"/Users/mario/code/negitachi/requirements.txt",
+		"/Users/mario/code/negitachi/poireau/common/local_settings.py",
+		"/Users/mario/code/negitachi/setup.py",
+		"/Users/mario/code/negitachi/poireau/common/wsgi.py",
+		"/Users/mario/code/negitachi/poireau_config.json",
+		"/Users/mario/code/negitachi/poireau/songs/views/song.py",
+		"/Users/mario/code/negitachi/poireau/songs/models/song.py",
+		"/Users/mario/code/negitachi/.gitignore",
+		"/Users/mario/code/negitachi/poireau/common/local_settings.template.py",
+		"/Users/mario/code/negitachi/poireau/common/settings.py",
+		"/Users/mario/code/negitachi/poireau/songs/urls.py",
+		"/Users/mario/code/negitachi/poireau/songs/templates/songs/detail.html",
+		"/Users/mario/code/negitachi/poireau/common/templates/base/base.html",
+		"/Users/mario/code/negitachi/poireau/songs/templates/songs/list.html",
+		"/Users/mario/code/negitachi/poireau/common/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/negitachi/poireau/songs/models/part.py",
+		"/Users/mario/code/negitachi/poireau/common/urls.py",
+		"/Users/mario/code/negitachi/poireau/singers/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/negitachi/poireau/songs/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/negitachi/poireau/common/views.py",
+		"/Users/mario/code/negitachi/poireau/common/templates/auth/login.html",
+		"/Users/mario/code/negitachi/poireau/common/static/style.css",
+		"/Users/mario/code/negitachi/README.md",
+		"/Users/mario/code/negitachi/poireau/songs/migrations/0003_auto_20150116_2333.py",
+		"/Users/mario/code/negitachi/poireau/common/templates/base/logged_base.html",
+		"/Users/mario/code/negitachi/poireau/common/templates/base/home.html",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/User/HTML (Django).sublime-settings",
+		"/Users/mario/code/negitachi/LICENSE",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/mario/HTML (Django).sublime-keymap",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/mario/Library/Application Support/Sublime Text 3/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
+		"/Users/mario/code/negitachi/scripts/compilemessages.sh",
+		"/Users/mario/code/negitachi/scripts/makemessages.sh",
+		"/Users/mario/code/negitachi/tutorial.md",
+		"/Users/mario/code/negitachi/poireau/songs/test_songs/.id",
+		"/Users/mario/code/negitachi/poireau/songs/test_songs/Test Choir.xml",
+		"/Users/mario/code/negitachi/.id",
+		"/Users/mario/code/negitachi/Chansons Negitachi/0 - Archives/Sonic - Green Hill Zone/sonic.doc",
+		"/Users/mario/.oh-my-zsh-themes/seeker/seeker.zsh-theme",
+		"/Users/mario/.oh-my-zsh/themes/bira.zsh-theme",
+		"/Users/mario/code/negitachi/poireau/songs/migrations/0001_initial.py",
+		"/Users/mario/code/negitachi/poireau/db.sqlite3",
+		"/Users/mario/code/negitachi/poireau/singers/migrations/0001_initial.py",
+		"/Users/mario/code/negitachi/Chansons Negitachi/Still Alive - Portal/still alive - Eve.mp3",
+		"/Users/mario/code/negitachi/manage.py",
+		"/Users/mario/code/negitachi/.sublimelinterrc",
+		"/Users/mario/code/negitachi/negitachi/singers/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/negitachi/negitachi/common/wsgi.py",
+		"/Users/mario/code/negitachi/negitachi/songs/locale/fr/LC_MESSAGES/django.po",
+		"/Users/mario/code/negitachi/negitachi/common/settings.py",
+		"/Users/mario/code/negitachi/negitachi/common/urls.py",
+		"/Users/mario/code/negitachi/negitachi/songs/urls.py"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"-*/Chansons*",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bounce_ball",
+			" ",
+			"print(",
+			"ange",
+			"one",
+			"chansons",
+			"chano",
+			"ValueError",
+			"</li>",
+			"minut",
+			"print(",
+			"print",
+			"get_xml_song",
+			"import",
+			"property",
+			"XmlPart",
+			"xml_parts",
+			"recursive",
+			"metadata_list",
+			"LATEST_DROPBOX_CHANGES",
+			"trans",
+			"FolderMetadata",
+			"print",
+			"print(",
+			"print",
+			"title",
+			"Cobra",
+			"attr",
+			"par",
+			"Pokém",
+			"print",
+			"XmlPart",
+			"self",
+			"self.path",
+			"as_bytes_file",
+			"name",
+			"appeared",
+			"disappeared",
+			"updated",
+			"disappeared",
+			"appeared",
+			"get_context_data",
+			"disappeared",
+			"dropbox_utils",
+			"pull-right",
+			"ChooseDropboxFolderView",
+			"print(\"",
+			"/path/to/your/song/files",
+			"coding",
+			", ",
+			"<",
+			"label",
+			"base_dir",
+			"dirname",
+			"download",
+			"Download",
+			"download",
+			"Download",
+			"download",
+			"list_folder",
+			"[\"DISCOVER\"]",
+			"[\"DISCOVER\"][\"songs\"]",
+			"appeared",
+			"element",
+			"print",
+			"\n	<h3>{% trans \"New songs\" %}</h3>\n	<ul>\n		{% for song in appeared %}\n			<li>{{ song }}</li>\n		{% endfor %}\n	</ul>",
+			"reference_song",
+			"Test SATB Score",
+			"step",
+			"alter",
+			"\",",
+			"P1",
+			"BaseSong",
+			"cached_property",
+			"FolderExplorer",
+			"get_songs",
+			"DropboxFolderExplorer",
+			"self",
+			"song_from_path",
+			"models.get_model",
+			"get_model",
+			"txt",
+			"SongMixin",
+			"notk",
+			"\n\n ",
+			"notk",
+			"verbose_name",
+			"list_o",
+			"DROPBOX_TOKEN_SESSION_KEY",
+			"SESSION",
+			"discover",
+			"DropboxTokenMixin",
+			"NoToken",
+			"dropbox-auth-csrf-token",
+			"song_discover",
+			"explore_folder",
+			"tool",
+			"print",
+			"loads",
+			"request.user.SESSION",
+			"logger",
+			"importlib",
+			"reverse",
+			"dj_static",
+			"line",
+			"readme_file",
+			"element",
+			"readme",
+			"caster",
+			"website",
+			" = ",
+			"m1",
+			"\\Z",
+			"\\A",
+			"3",
+			"€",
+			"Commande expédiée",
+			"config.json",
+			"config.hson",
+			"__unicode__",
+			"parsed_xml",
+			"load_xml",
+			"poireau",
+			" python3 ",
+			"CSRF",
+			"CSRF_COOKIE_SECURE",
+			"print",
+			"BaseViewMixin"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"__str__",
+			".display",
+			"\\n",
+			"    "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tala.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6776,
+								6776
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2152.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "kivycatalog.kv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4695,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4695,
+								4695
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Kivy Language/kv.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1552.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 615.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "tala.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"list.htm",
+				"poireau/songs/templates/songs/list.html"
+			],
+			[
+				"base/base.html",
+				"poireau/common/templates/base/base.html"
+			],
+			[
+				"logged_base.html",
+				"poireau/common/templates/base/logged_base.html"
+			],
+			[
+				"base.h",
+				"poireau/common/templates/base/base.html"
+			],
+			[
+				"base.",
+				"poireau/common/templates/base/base.html"
+			],
+			[
+				"logge",
+				"poireau/common/templates/base/logged_base.html"
+			],
+			[
+				"song",
+				"poireau/songs/models/song.py"
+			],
+			[
+				"",
+				".id"
+			],
+			[
+				"setti",
+				"poireau/common/settings.py"
+			],
+			[
+				"m",
+				"manage.py"
+			],
+			[
+				"views",
+				"negitachi/songs/views/song.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 87.0,
+		"last_filter": "compa",
+		"selected_items":
+		[
+			[
+				"compa",
+				"compare_sets"
+			],
+			[
+				"compare_sets",
+				"compare_sets"
+			],
+			[
+				"DiscoverForm",
+				"DiscoverForm"
+			],
+			[
+				"Song",
+				"Song"
+			],
+			[
+				"BaseLoggedViewMixin",
+				"BaseLoggedViewMixin"
+			],
+			[
+				"DropboxTokenMixin",
+				"DropboxTokenMixin"
+			],
+			[
+				"HomeView",
+				"HomeView"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 228.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
