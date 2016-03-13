@@ -19,8 +19,16 @@ class HoarseApp(App):
     def build(self):
         return HoarseMain()
 
+    @property
+    def screen_manager(self):
+        return self.root.ids["screen_manager"]
+
+    def switch_screen(self, name):
+        self.screen_manager.current = name
+
+
 class HoarseMain(BoxLayout):
-    manager = ObjectProperty(None)
+    screen_manager = ObjectProperty(None)
 
 
 if __name__ == "__main__":

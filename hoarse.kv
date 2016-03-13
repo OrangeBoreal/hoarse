@@ -1,9 +1,8 @@
 #:kivy 1.4
 
 <HoarseMain>:
-	manager: "screen_manager"
 	ScreenManager:
-		id: screen_manger
+		id: screen_manager
 	    Screen:
 	    	name: 'stylemenu'
 	    	StyleMenu
@@ -41,7 +40,7 @@
 <StyleButton>:
 	size_hint: (.8, .5)
 	background_color: (0, 1, 0, 1)
-	on_press: self.parent.parent.parent.parent.current = 'substyle-korean'
+	on_press: app.switch_screen("substyle-" + self.name)
 
 
 <SubstyleKoreanMenu>:
