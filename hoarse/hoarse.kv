@@ -12,6 +12,9 @@
 	    Screen:
 	    	name: 'competitors-management'
 	    	CompetitorsManagementMenu
+	    Screen:
+	    	name: 'run-screen'
+	    	RunScreen
 
 
 <StyleMenu>:
@@ -25,7 +28,8 @@
 			text: "Hungarian style"
 			name: "hungarian"
 			disabled: False
-			on_press: app.switch_screen("competitors-management")
+			#on_press: app.switch_screen("competitors-management")
+			on_press: app.switch_screen("run-screen")
 		StyleButton:
 			text: "Korean style"
 			name: "korean"
@@ -73,7 +77,7 @@
 		size_hint_y: .1
 
 	CompetitorTextInput:
-		size_hint_y: 0.1
+		size_hint_y: .1
 		multiline: False
 
 	BoxLayout:
@@ -90,5 +94,37 @@
 	Label:
 		id: name
 		size_hint: (.8, 1)
+
+
+<RunScreen>:
+	Button:
+		text: "Settings"
+		pos_hint: {'top': 0.9, 'right':1}
+		size_hint: (.1, .1)
+	Button:
+		text: "Next"
+		pos_hint: {'bottom' : 0.1, 'right':1}
+		size_hint: (.1, .1)
+	Label:
+		size_hint_y: 0.1
+		size_hint_x: 0.3
+		pos_hint:{'top': 0.4, 'right':0.4}
+		text: "Time"
+	TextInput:
+		multiline: False
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint:{'top': 0.5, 'right':0.4}
+	Label:
+		size_hint_y: 0.1
+		size_hint_x: 0.3
+		pos_hint:{'top': 0.4, 'right':0.9}
+		text: "Target points"
+	TextInput:
+		multiline: False
+		size_hint_y: .1
+		size_hint_x: .3
+		pos_hint:{'top': 0.5, 'right':0.9}
+
 
 
