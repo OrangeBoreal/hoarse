@@ -71,10 +71,18 @@
 	Label:
 		text: "Enter the competitors' names"
 		size_hint_y: .1
-	GridLayout:
-		cols:2
-		Label:
-			text: "G1"
-			size_x: 100
-		Label:
-			text: "Jean-Marc / SuperPoney "
+
+	CompetitorTextInput:
+		multiline: False
+
+	BoxLayout:
+		id: competitors_list
+		orientation: 'vertical'
+
+<CompetitorLine>:
+	Label:
+		id: group
+		text: "G1"
+		size_x: 100
+	Label:
+		id: name
