@@ -73,16 +73,22 @@
 		size_hint_y: .1
 
 	CompetitorTextInput:
+		size_hint_y: 0.1
 		multiline: False
 
 	BoxLayout:
 		id: competitors_list
 		orientation: 'vertical'
 
+
 <CompetitorLine>:
+	anchor_x: 'left'
+	anchor_y: 'top'
 	Label:
-		id: group
-		text: "G1"
-		size_x: 100
+		id: competitorGroup
+		size_hint: (.2, 1)
 	Label:
 		id: name
+		size_hint: (.8, 1)
+
+
