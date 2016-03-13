@@ -9,10 +9,14 @@ from kivy.properties import StringProperty,  ObjectProperty
 class StyleButton(Button):
     name = StringProperty()
 
+
 class StyleMenu(BoxLayout):
     pass
 
 class SubstyleKoreanMenu(BoxLayout):
+    pass
+
+class CompetitorsManagementMenu(BoxLayout):
     pass
 
 class HoarseApp(App):

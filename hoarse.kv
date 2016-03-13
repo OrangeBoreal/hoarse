@@ -9,6 +9,9 @@
 	    Screen:
 	    	name: 'substyle-korean'
 	    	SubstyleKoreanMenu
+	    Screen:
+	    	name: 'competitors-management'
+	    	CompetitorsManagementMenu
 
 
 <StyleMenu>:
@@ -21,9 +24,13 @@
 		StyleButton:
 			text: "Hungarian style"
 			name: "hungarian"
+			disabled: False
+			on_press: app.switch_screen("competitors-management")
 		StyleButton:
 			text: "Korean style"
 			name: "korean"
+			disabled: False
+			on_press: app.switch_screen("substyle-" + self.name)
 		StyleButton:
 			text: "Polish track"
 			name: "polish"
@@ -40,8 +47,7 @@
 <StyleButton>:
 	size_hint: (.8, .5)
 	background_color: (0, 1, 0, 1)
-	on_press: app.switch_screen("substyle-" + self.name)
-
+	disabled: True
 
 <SubstyleKoreanMenu>:
 	orientation:'vertical'
@@ -60,3 +66,15 @@
 			text: "Korean 2-3-5"
 			name: "k235"
 
+<CompetitorsManagementMenu>:
+	orientation: 'vertical'
+	Label:
+		text: "Enter the competitors' names"
+		size_hint_y: .1
+	GridLayout:
+		cols:2
+		Label:
+			text: "G1"
+			size_x: 100
+		Label:
+			text: "Jean-Marc / SuperPoney "
