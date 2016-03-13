@@ -1,30 +1,63 @@
 #:kivy 1.4
 
-BoxLayout:
-	orientation:'vertical'
-    #Color:
-    #    rgba: 253, 253, 253, 1
+<HoarseMain>:
+	manager: "screen_manager"
+	ScreenManager:
+		id: screen_manger
+	    Screen:
+	    	name: 'stylemenu'
+	    	StyleMenu
+	    Screen:
+	    	name: 'substyle-korean'
+	    	SubstyleKoreanMenu
 
+
+<StyleMenu>:
+	orientation:'vertical'
 	Label:
-		text:"Choose your competition style"
+		text: "Choose your competition style"
 		size_hint_y: 0.3
 	GridLayout:
 		cols: 3
-		Button:
-			text:"Hungarian style"
-			size_hint: (.8, .5)
-		Button:
-			text:"Korean style"
-			size_hint: (.8, .5)
-		Button:
-			text:"Polish track"
-			size_hint: (.8, .5)
-		Button:
-			text:"Qabaq style"
-			size_hint: (.8, .5)
-		Button:
-			text:"FFE (French federal styles)"
-			size_hint: (.8, .5)
-		Button:
-			text:"Combined competitions"
-			size_hint: (.8, .5)
+		StyleButton:
+			text: "Hungarian style"
+			name: "hungarian"
+		StyleButton:
+			text: "Korean style"
+			name: "korean"
+		StyleButton:
+			text: "Polish track"
+			name: "polish"
+		StyleButton:
+			text: "Qabaq style"
+			name: "qabaq"
+		StyleButton:
+			text: "FFE (French federal styles)"
+			name: "FFE"
+		StyleButton:
+			text: "Combined competitions"
+			name: "combined"
+
+<StyleButton>:
+	size_hint: (.8, .5)
+	background_color: (0, 1, 0, 1)
+	on_press: self.parent.parent.parent.parent.current = 'substyle-korean'
+
+
+<SubstyleKoreanMenu>:
+	orientation:'vertical'
+	Label:
+		text: "Choose your Korean settings"
+		size_hint_y: 0.3
+	GridLayout:
+		cols: 3
+		StyleButton:
+			text: "Korean 1-2-3"
+			name: "k123"
+		StyleButton:
+			text: "Korean 1-2-5"
+			name: "k125"
+		StyleButton:
+			text: "Korean 2-3-5"
+			name: "k235"
+
