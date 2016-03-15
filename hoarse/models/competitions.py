@@ -81,10 +81,11 @@ class CompetitionTest(object):
                 runNumber = max(0, runNumber - 1)
             elif index + direction >= len(self.competitors):
                 competitor = self.competitors[0]
-                runNumber = min(self.totalRunNumber, runNumber + 1)  
+                if runNumber >= self.totalRunNumber -1:
+                    raise self.NoMoreRuns
+                runNumber += 1
             else:
                 competitor = self.competitors[index + direction]
-
         return self.runs[(runNumber, competitor)]
 
     @property

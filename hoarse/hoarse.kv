@@ -25,6 +25,10 @@
 	    	on_enter: run_screen.ids["time_input"].focus=True
 	    	RunScreen:
 	    		id: run_screen
+	    Screen:
+	    	name: 'result-screen'
+	    	ResultScreen:
+	    		id: result_screen
 
 
 <StyleMenu>:
@@ -126,7 +130,7 @@
 
 	canvas:
 		Color:
-			rgb: (0.3, 0.3, 0.3)
+			rgb: (0, 0.3, 0.3)
 		Rectangle:
 			size: root.size
 			pos: root.pos
@@ -152,7 +156,7 @@
 	Button:
 		size_hint: (.05, .4)
 		pos_hint: {'right' : .98, 'y':.3}
-		on_press: root.validate(by="runs")
+		on_press: root.validate()
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'top':.98}
@@ -160,7 +164,7 @@
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'y':.02}
-		on_press: root.validate()
+		on_press: root.validate(by="runs")
 
 	Label:
 		size_hint: (.3, .1)
@@ -196,6 +200,36 @@
 		size_hint: (.3, None)
 		pos_hint:{'top': .5, 'right': .8}
 		on_text: root.updateScore(targets_input.text, time_input.text)
+
+
+<ResultScreen>:
+	orientation:'vertical'
+	Label:
+		text: "Results"
+		size_hint: (1, .1)
+		pos_hint: {'top' : .98}
+	BoxLayout:
+		size_hint: (.8, .65)
+		pos_hint: {"center_x": .5, "top": 0.75}
+
+		id: results_list
+		orientation: 'vertical'
+		spacing: 5
+		padding: 5
+
+
+<ResultLine>:
+	height: 100
+	size_hint_y: None
+	Label:
+		id: rank
+		size_hint: (.1, 1)
+	Label:
+		id: name
+		size_hint: (.7, 1)
+	Label:
+		id: score
+		size_hint: (.2, 1)
 
 
 

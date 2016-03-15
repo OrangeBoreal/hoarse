@@ -10,7 +10,7 @@ from kivy.uix.textinput import TextInput
 from kivy.graphics import Rectangle
 from kivy.properties import StringProperty,  ObjectProperty, NumericProperty
 
-from hoarse.models import Competition, Competitor
+from hoarse.models import Competition, Competitor, TestResults
 from hoarse.models.rules import HungarianStyleSettings
 
 class StyleButton(Button):
@@ -64,9 +64,35 @@ class RunScreen(FloatLayout):
             
     def validate(self, by="competitors", direction=1):
         app = HoarseApp.get()
-        new_run = app.competition.tests[0].getNextRun(self.run, by=by, direction=direction)
-        if new_run != self.run:
-            self.setRun(new_run)
+        try:
+            new_run = app.competition.tests[0].getNextRun(self.run, by=by, direction=direction)
+            if new_run != self.run:
+                self.setRun(new_run)
+        except app.competition.tests[0].NoMoreRuns:
+            result_screen = app.root.ids["result_screen"]
+            result_screen.print_results(app.competition.tests[0])
+            app.switch_screen("result-screen")
+            
+class ResultScreen(BoxLayout):
+    def add_result(self, rank, name, score):
+        result_line = ResultLine(rank=rank, name=name, score=score)
+        self.ids['results_list'].add_widget(result_line)
+        
+    def print_results(self, test):
+        results = TestResults(test) 
+        rank = 1
+        for competitor in results.ranking():
+            self.add_result(rank=rank, name=competitor.riderName, score=results.scoresPerCompetitors[competitor])
+            rank+=1
+        
+        
+class ResultLine(BoxLayout):
+    def __init__(self, rank, name, score):
+        super().__init__()
+        self.ids["rank"].text = "{}".format(rank)
+        self.ids["name"].text = name
+        self.ids["score"].text = "{}".format(score)
+        
         
 
 class CompetitorsManagementMenu(FloatLayout):

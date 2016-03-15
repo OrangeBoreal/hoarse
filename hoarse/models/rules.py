@@ -38,7 +38,7 @@ class HungarianRunSettings(RunSettings):
     multipleArrowsPerTarget = True
     numberOfTargets = 1
     possibleValues = [2, 3, 4]
-    numberOfRuns = 3 #9 #for test purposes
+    numberOfRuns = 2 #9 #for test purposes
 
 class KoreanStyleSettings(StyleSettings):
 
