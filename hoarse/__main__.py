@@ -61,6 +61,13 @@ class RunScreen(FloatLayout):
             self.competitor_text = self.run.competitor.riderName
             self.run_text = "Run {}".format(self.run.displayRunNumber)
             self.score_text = "Score : {}".format(self.run.score())
+            
+    def validate(self, by="competitors", direction=1):
+        app = HoarseApp.get()
+        new_run = app.competition.tests[0].getNextRun(self.run, by=by, direction=direction)
+        if new_run != self.run:
+            self.setRun(new_run)
+        
 
 class CompetitorsManagementMenu(FloatLayout):
     counter = NumericProperty(0)

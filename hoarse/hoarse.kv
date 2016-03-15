@@ -1,4 +1,4 @@
-#:kivy 1.4
+#:kivy 1.9.1
 
 <HoarseMain>:
 
@@ -148,15 +148,19 @@
 	Button:
 		size_hint: (.05, .4)
 		pos_hint: {'x' : .02, 'y':.3}
+		on_press: root.validate(direction=-1)
 	Button:
 		size_hint: (.05, .4)
 		pos_hint: {'right' : .98, 'y':.3}
+		on_press: root.validate(by="runs")
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'top':.98}
+		on_press: root.validate(by="runs", direction=-1)
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'y':.02}
+		on_press: root.validate()
 
 	Label:
 		size_hint: (.3, .1)

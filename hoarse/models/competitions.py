@@ -37,6 +37,8 @@ class CompetitionTest(object):
                     runSettings=runSettings,
                     competitor=competitor,
                 )
+    class NoMoreRuns(Exception):
+        pass
 
     def getScoresPerCompetitor(self, doSum=False):
         """
@@ -69,7 +71,7 @@ class CompetitionTest(object):
         direction can be 1 or -1
         """
         runNumber, competitor = currentRun.runNumber, currentRun.competitor
-        if by == "run":
+        if by == "runs":
             if 0 <= runNumber + direction < self.totalRunNumber:
                 runNumber += direction
         elif by == "competitors":
@@ -77,11 +79,11 @@ class CompetitionTest(object):
             if index + direction < 0:
                 competitor = self.competitors[-1]
                 runNumber = max(0, runNumber - 1)
-            elif index + direction >= self.totalRunNumber:
+            elif index + direction >= len(self.competitors):
                 competitor = self.competitors[0]
-                runNumber = min(self.totalRunNumber, runNumber + 1)
+                runNumber = min(self.totalRunNumber, runNumber + 1)  
             else:
-                competitor = self.competitors[index + 1]
+                competitor = self.competitors[index + direction]
 
         return self.runs[(runNumber, competitor)]
 

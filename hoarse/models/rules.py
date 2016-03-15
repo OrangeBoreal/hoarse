@@ -14,18 +14,18 @@ class RunSettings(object):
     multipleArrowsPerTarget = None
     possibleValues = None
     targetBonus = None
+    numberOfRuns = None
+    numberOfUntimedRuns = None
 
 
 class StyleSettings(object):
     def createRunSettings(self):
         raise NotImplementedError
 
-
 class HungarianStyleSettings(StyleSettings):
     def createRunSettings(self):
-        for i in range(9):
+        for i in range(HungarianRunSettings.numberOfRuns):
             yield HungarianRunSettings()
-
 
 class HungarianRunSettings(RunSettings):
     """
@@ -38,14 +38,7 @@ class HungarianRunSettings(RunSettings):
     multipleArrowsPerTarget = True
     numberOfTargets = 1
     possibleValues = [2, 3, 4]
-    numberOfRuns = 9
-
-
-class HungarianStyleSettings(StyleSettings):
-    def createRunSettings(self):
-        for i in range(HungarianRunSettings.numberOfRuns):
-            yield HungarianRunSettings()
-
+    numberOfRuns = 3 #9 #for test purposes
 
 class KoreanStyleSettings(StyleSettings):
 
@@ -112,3 +105,17 @@ class Korean123StyleSettings(KoreanStyleSettings):
 
 class Korean235StyleSettings(KoreanStyleSettings):
     koreanRunsSettings = [Korean2RunSettings, Korean3RunSettings, Korean5RunSettings]
+    
+    
+class FFEClub1HungarianRunSettings(RunSettings):
+    """
+    Parameters for a hungarian run
+    """
+    trackLength = 60
+    maxTime = 12
+    eliminatingTime = 12
+    timeBonus = 1
+    multipleArrowsPerTarget = True
+    numberOfTargets = 1
+    possibleValues = [2, 3, 4]
+    numberOfRuns = 9
