@@ -78,8 +78,9 @@ class ResultScreen(BoxLayout):
         result_line = ResultLine(rank=rank, name=name, score=score)
         self.ids['results_list'].add_widget(result_line)
         
-    def print_results(self, test):
+    def print_results(self, test):        
         results = TestResults(test) 
+        results.dumpToCsv("tmp")
         rank = 1
         for competitor in results.ranking():
             self.add_result(rank=rank, name=competitor.riderName, score=results.scoresPerCompetitors[competitor])

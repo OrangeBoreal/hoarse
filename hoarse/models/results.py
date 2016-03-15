@@ -13,7 +13,31 @@ class TestResults(object):
         return [c for c in sorted(self.scoresPerCompetitors, key=self.scoresPerCompetitors.get, reverse=True)]
     
     
-   # def dumpToCsv(self, filename):
+    def dumpToCsv(self, filename):
+        rank = 1
+        with open("%s.csv"%filename, 'w') as csvfile:
+            csvfile.write("Rank, Rider name, Horse name, Score, Target points,")
+            map(lambda i: csvfile.write("Run %d time, Run %d target points"%(i+1, i+1)), range(self.test.totalRunNumber))
+            csvfile.write("\n")
+            ranking = self.ranking()
+            for competitor in ranking:
+                csvfile.write("%d, %s, %s, %f,"%(rank, competitor.riderName,\
+                competitor.horseName, self.scoresPerCompetitors[competitor]))
+                for i in range(self.test.totalRunNumber):
+                    run = self.test.runs[(i, competitor)]
+                    try:
+                        csvfile.write("%f,"%(run.time))
+                    except TypeError:
+                        csvfile.write("NA,")
+                    try:
+                        csvfile.write("%f,"%(run.targetScore()))
+                    except TypeError:
+                        csvfile.write("0,")
+                csvfile.write("\n")
+                
+                
+            
+        
         
     
     
