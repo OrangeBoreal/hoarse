@@ -160,11 +160,11 @@
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'top':.98}
-		on_press: root.validate(by="runs", direction=-1)
+		on_press: root.validate(next_by="runs", direction=-1)
 	Button:
 		size_hint: (.4, .05)
 		pos_hint: {'x' : .3, 'y':.02}
-		on_press: root.validate(by="runs")
+		on_press: root.validate(next_by="runs")
 
 	Label:
 		size_hint: (.3, .1)

@@ -1,7 +1,3 @@
-# Hoarse
-from hoarse.models.competitions import CompetitionTest
-
-
 class TestResults(object):
     """
     Compute the results of a test, ie the ranking of all competitors per score
@@ -17,17 +13,17 @@ class TestResults(object):
         rank = 1
         with open("%s.csv" % filename, 'w') as csvfile:
             csvfile.write("Rank, Rider name, Horse name, Score, Target points,")
-            for i in range(self.test.totalRunNumber):
-                csvfile.write("Run %d time, Run %d target points" % (i + 1, i + 1))
+            for runNumber in range(self.test.totalRunNumber):
+                csvfile.write("Run %d time, Run %d target points" % (runNumber + 1, runNumber + 1))
             csvfile.write("\n")
             ranking = self.ranking()
             for competitor in ranking:
                 csvfile.write("%d, %s, %s, %f," % (
                     rank, competitor.riderName,
-                    competitor.horseName, self.scoresPerCompetitors[competitor])
-                )
-                for i in range(self.test.totalRunNumber):
-                    run = self.test.runs[(i, competitor)]
+                    competitor.horseName, self.scoresPerCompetitors[competitor]
+                ))
+                for runNumber in range(self.test.totalRunNumber):
+                    run = self.test.runs[(runNumber, competitor)]
                     try:
                         csvfile.write("%f," % (run.time))
                     except TypeError:

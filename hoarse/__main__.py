@@ -1,14 +1,10 @@
 # Kivy
 from kivy.app import App
 from kivy.clock import Clock
-from kivy.graphics import Rectangle
 from kivy.properties import NumericProperty, ObjectProperty, StringProperty
-from kivy.uix.anchorlayout import AnchorLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.textinput import TextInput
-from kivy.uix.widget import Widget
 
 # Hoarse
 from hoarse.models import Competition, Competitor, TestResults
@@ -67,10 +63,10 @@ class RunScreen(FloatLayout):
             self.run_text = "Run {}".format(self.run.displayRunNumber)
             self.score_text = "Score : {}".format(self.run.score())
 
-    def validate(self, by="competitors", direction=1):
+    def validate(self, next_by="competitors", direction=1):
         app = HoarseApp.get()
         try:
-            new_run = app.competition.tests[0].getNextRun(self.run, by=by, direction=direction)
+            new_run = app.competition.tests[0].getNextRun(self.run, next_by=next_by, direction=direction)
             if new_run != self.run:
                 self.setRun(new_run)
         except app.competition.tests[0].NoMoreRuns:
@@ -118,7 +114,10 @@ class CompetitorsManagementMenu(FloatLayout):
 
     @property
     def competitors(self):
-        return [line.competitor for line in self.ids['competitors_list'].children]
+        return [
+            line.competitor
+            for line in self.ids['competitors_list'].children
+        ]
 
     def add_competitor(self, riderName):
         text_input = self.ids['competitor_input']
@@ -127,7 +126,9 @@ class CompetitorsManagementMenu(FloatLayout):
         else:
             group = self.counter // 5 + 1
             self.counter += 1
-            competitor_line = CompetitorLine(competitor=Competitor(riderName=riderName, group=group))
+            competitor_line = CompetitorLine(
+                competitor=Competitor(riderName=riderName, group=group)
+            )
             self.ids['competitors_list'].add_widget(competitor_line)
             text_input.text = ""
 

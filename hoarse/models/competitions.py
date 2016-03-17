@@ -70,18 +70,18 @@ class CompetitionTest(object):
     def getFirstUncompletedRun(self):
         return next(iter(run for run in self.runs.values() if not run.completed))
 
-    def getNextRun(self, currentRun, by="competitors", direction=1):
+    def getNextRun(self, currentRun, next_by="competitors", direction=1):
         """
         Return a run that's "next" to the currentRun
-        by can be "competitors" or "runs"
+        next_by can be "competitors" or "runs"
         direction can be 1 or -1
         """
         runNumber, competitor = currentRun.runNumber, currentRun.competitor
-        if by == "runs":
+        if next_by == "runs":
             if 0 <= runNumber + direction < self.totalRunNumber:
                 runNumber += direction
-        elif by == "competitors":
-            keys = self.runs.keys()  # Already sorted because it comes from an OrderedDict
+        elif next_by == "competitors":
+            keys = list(self.runs.keys())  # Already sorted because it comes from an OrderedDict
             index = keys.index(runNumber, competitor)
             new_index = index + direction
             if 0 <= new_index < self.totalRunNumber:

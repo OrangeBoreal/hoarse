@@ -13,6 +13,7 @@ class Run(IDMixin):
     """
 
     def __init__(self, runNumber, runSettings, competitor):
+        super().__init__()
         self.completed = False
 
         self.runSettings = runSettings

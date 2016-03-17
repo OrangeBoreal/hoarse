@@ -10,7 +10,7 @@ class RunSettings(object):
     timeBonus = None
     maxTimeBonus = None
     timeMalus = None
-    numberOfTargets  = None
+    numberOfTargets = None
     multipleArrowsPerTarget = None
     possibleValues = None
     targetBonus = None
@@ -25,7 +25,7 @@ class StyleSettings(object):
 
 class HungarianStyleSettings(StyleSettings):
     def createRunSettings(self):
-        for i in range(HungarianRunSettings.numberOfRuns):
+        for __ in range(HungarianRunSettings.numberOfRuns):
             yield HungarianRunSettings()
 
 
@@ -45,11 +45,11 @@ class HungarianRunSettings(RunSettings):
 
 class KoreanStyleSettings(StyleSettings):
 
-    koreanRunsSettings = None
+    koreanRunsSettings = []
 
     def createRunSettings(self):
         for koreanRunsSettings in self.koreanRunsSettings:
-            for i in range(koreanRunsSettings.numberOfRuns):
+            for __ in range(koreanRunsSettings.numberOfRuns):
                 yield koreanRunsSettings()
 
 
