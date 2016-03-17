@@ -6,4 +6,4 @@ pylint=1.5.4
 isort==4.2.2
 
 # Operations
-fabric==1.10.2
+invoke==0.12.2
