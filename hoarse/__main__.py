@@ -1,17 +1,20 @@
+# Kivy
 import kivy
-from kivy.clock import Clock
 from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.widget import Widget
-from kivy.uix.textinput import TextInput
+from kivy.clock import Clock
 from kivy.graphics import Rectangle
-from kivy.properties import StringProperty,  ObjectProperty, NumericProperty
+from kivy.properties import NumericProperty, ObjectProperty, StringProperty
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget
 
+# Hoarse
 from hoarse.models import Competition, Competitor, TestResults
 from hoarse.models.rules import HungarianStyleSettings
+
 
 class StyleButton(Button):
     name = StringProperty()

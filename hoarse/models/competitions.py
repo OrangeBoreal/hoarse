@@ -1,6 +1,10 @@
-from hoarse.models.runs import Run
+# Standard Library
 from collections import OrderedDict
 from itertools import groupby
+
+# Hoarse
+from hoarse.models.runs import Run
+
 
 class Competition(object):
     """
