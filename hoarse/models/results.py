@@ -1,3 +1,4 @@
+# Hoarse
 from hoarse.models.competitions import CompetitionTest
 
 
@@ -34,10 +35,3 @@ class TestResults(object):
                     except TypeError:
                         csvfile.write("0,")
                 csvfile.write("\n")
-
-
-
-
-
-
-

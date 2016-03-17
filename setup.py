@@ -1,4 +1,5 @@
-from setuptools import setup, find_packages
+# Third Party
+from setuptools import find_packages, setup
 
 setup(
     name="hoarse",

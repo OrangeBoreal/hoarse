@@ -1,4 +1,6 @@
+# Third Party
 from invoke import run, task
+
 
 @task
 def lint():
@@ -14,7 +16,7 @@ def isort():
     """
     Sorts all the imports
     """
-    run("isort .")
+    run("isort -rc .")
 
 @task
 def tests():
