@@ -22,10 +22,12 @@ class StyleSettings(object):
     def createRunSettings(self):
         raise NotImplementedError
 
+
 class HungarianStyleSettings(StyleSettings):
     def createRunSettings(self):
         for i in range(HungarianRunSettings.numberOfRuns):
             yield HungarianRunSettings()
+
 
 class HungarianRunSettings(RunSettings):
     """
@@ -38,7 +40,8 @@ class HungarianRunSettings(RunSettings):
     multipleArrowsPerTarget = True
     numberOfTargets = 1
     possibleValues = [2, 3, 4]
-    numberOfRuns = 2 #9 #for test purposes
+    numberOfRuns = 2  # 9 #for test purposes
+
 
 class KoreanStyleSettings(StyleSettings):
 
@@ -105,8 +108,8 @@ class Korean123StyleSettings(KoreanStyleSettings):
 
 class Korean235StyleSettings(KoreanStyleSettings):
     koreanRunsSettings = [Korean2RunSettings, Korean3RunSettings, Korean5RunSettings]
-    
-    
+
+
 class FFEClub1HungarianRunSettings(RunSettings):
     """
     Parameters for a hungarian run

@@ -1,5 +1,4 @@
 # Kivy
-import kivy
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.graphics import Rectangle
@@ -33,11 +32,14 @@ class StyleButton(Button):
 
         app.switch_screen("run-screen")
 
+
 class StyleMenu(BoxLayout):
     pass
 
+
 class SubstyleKoreanMenu(BoxLayout):
     pass
+
 
 class RunScreen(FloatLayout):
     competitor_text = StringProperty()
@@ -76,6 +78,7 @@ class RunScreen(FloatLayout):
             result_screen.print_results(app.competition.tests[0])
             app.switch_screen("result-screen")
 
+
 class ResultScreen(BoxLayout):
     def add_result(self, rank, name, score):
         result_line = ResultLine(rank=rank, name=name, score=score)
@@ -96,7 +99,6 @@ class ResultLine(BoxLayout):
         self.ids["rank"].text = "{}".format(rank)
         self.ids["name"].text = name
         self.ids["score"].text = "{}".format(score)
-
 
 
 class CompetitorsManagementMenu(FloatLayout):
@@ -140,12 +142,14 @@ class CompetitorsManagementMenu(FloatLayout):
 
         app.switch_screen("style-menu")
 
+
 class CompetitorLine(BoxLayout):
     def __init__(self, competitor):
         super().__init__()
         self.competitor = competitor
         self.ids["competitorGroup"].text = "G{}".format(competitor.group)
         self.ids["name"].text = competitor.riderName
+
 
 class HoarseApp(App):
     competition = Competition()

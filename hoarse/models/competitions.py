@@ -22,6 +22,7 @@ class Competition(object):
         self.tests.append(test)
         return test
 
+
 class CompetitionTest(object):
     """
     Test here means Trial, not UnitTest.
@@ -41,6 +42,7 @@ class CompetitionTest(object):
                     runSettings=runSettings,
                     competitor=competitor,
                 )
+
     class NoMoreRuns(Exception):
         pass
 

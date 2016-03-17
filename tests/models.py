@@ -36,7 +36,7 @@ class CompetitionTest(unittest.TestCase):
         self.assertEqual(len(test.runSettings), 9)
         self.assertEqual(len(test.runs), 3 * 9)
 
-        #run the competition
+        # Run the competition
         scores = getScores()
         for score, run in zip(scores, test.runs.values()):  # it's an ordered dict, so values are in the right orider
             targetScore, timeScore = score
