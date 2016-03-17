@@ -3,7 +3,7 @@ import unittest
 
 # Hoarse
 from hoarse.models import Competition, CompetitionTest, Competitor, Run
-from hoarse.models.rules import HungarianStyleSettings
+from hoarse.models.rules import HungarianRunSettings, HungarianStyleSettings
 
 
 class CompetitionTest(unittest.TestCase):
@@ -30,7 +30,10 @@ class CompetitionTest(unittest.TestCase):
         c3 = Competitor("Cléôpâtre", group=None)
         competitors = [c1, c2, c3]
 
-        competition = Competition(competitors=competitors)
+        HungarianRunSettings.numberOfRuns = 9
+
+        competition = Competition()
+        competition.competitors = competitors
         test = competition.addTest(HungarianStyleSettings())
 
         self.assertEqual(len(test.runSettings), 9)
