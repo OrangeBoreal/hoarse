@@ -17,6 +17,10 @@ class RunSettings(object):
     numberOfRuns = None
     numberOfUntimedRuns = None
 
+    @property
+    def possibleStringValues(self):
+        return ["{}".format(value) for value in self.possibleValues]
+
 
 class StyleSettings(object):
     def createRunSettings(self):
@@ -39,7 +43,7 @@ class HungarianRunSettings(RunSettings):
     timeBonus = 1
     multipleArrowsPerTarget = True
     numberOfTargets = 1
-    possibleValues = [2, 3, 4]
+    possibleValues = [0, 2, 3, 4]
     numberOfRuns = 2  # 9 #for test purposes
 
 

@@ -24,10 +24,19 @@
 			name: 'hungarian-settings'
 			HungarianSettingsMenu
 		Screen:
-			name: 'run-screen'
-			on_enter: run_screen.ids["time_input"].focus=True
-			RunScreen:
-				id: run_screen
+			name: 'run-screens'
+			on_enter: run_screens.run_screen.on_enter()
+			ToggleScreenManager:
+				id: run_screens
+				Screen:
+					on_enter: self.children[0].on_enter()
+					name: 'screen-1'
+					RunScreen:
+				Screen:
+					on_enter: self.children[0].on_enter()
+					name: 'screen-2'
+					RunScreen:
+
 		Screen:
 			name: 'result-screen'
 			ResultScreen:
@@ -171,38 +180,45 @@
 
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .85, 'x':.2}
+		pos_hint: {'top': .85, 'x':.2}
 		text: root.competitor_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .75, 'x':.2}
+		pos_hint: {'top': .75, 'x':.2}
 		text: root.run_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .65, 'x':.2}
+		pos_hint: {'top': .65, 'x':.2}
 		text: root.score_text
 
 	Label:
 		size_hint: (.3, .1)
 		pos_hint:{'top': .6, 'x':.2}
 		text: "Time"
+
 	TextInput:
 		id: time_input
 		multiline: False
 		size_hint: (.3, None)
-		pos_hint:{'top': .5, 'x':.2}
+		pos_hint: {'top': .5, 'x':.2}
+		input_filter: "float"
 		on_text: root.updateScore(targets_input.text, time_input.text)
+		write_tab: False
+		focus_next: targets_input
 
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .6, 'right': .8}
+		pos_hint: {'top': .6, 'right': .8}
 		text: "Target points"
 	TextInput:
 		id: targets_input
 		multiline: False
 		size_hint: (.3, None)
-		pos_hint:{'top': .5, 'right': .8}
+		pos_hint: {'top': .5, 'right': .8}
+		input_filter: root.targets_filter
 		on_text: root.updateScore(targets_input.text, time_input.text)
+		write_tab: False
+		focus_previous: time_input
 
 
 <ResultScreen>:

@@ -88,6 +88,7 @@ class CompetitionTest(object):
                 runNumber, competitor = keys[new_index]
             elif new_index > self.totalRunNumber:
                 raise self.NoMoreRuns()
+
         return self.runs[(runNumber, competitor)]
 
     @property

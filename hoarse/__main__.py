@@ -6,6 +6,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.stacklayout import StackLayout
+from kivy.uix.screenmanager import ScreenManager
 
 # Hoarse
 from hoarse.models import Competition, Competitor, TestResults
@@ -22,12 +23,12 @@ class StyleButton(Button):
         app = HoarseApp.get()
         test = app.competition.addTest(settings_class())
 
-        run_screen = app.root.ids["run_screen"]
+        run_screen = app.root.ids["run_screens"].run_screen
 
         run_screen.test = test
         run_screen.run = test.getFirstUncompletedRun()
 
-        app.switch_screen("run-screen")
+        app.switch_screen("run-screens")
 
 
 class StyleMenu(BoxLayout):
@@ -38,42 +39,77 @@ class SubstyleKoreanMenu(BoxLayout):
     pass
 
 
-class RunScreen(FloatLayout):
+class FocusMixin(object):
+    def setFocus(self, input):
+        def _setFocus(__):
+            input.focus = True
+
+        Clock.schedule_once(_setFocus)
+
+
+class RunScreen(FocusMixin, FloatLayout):
     competitor_text = StringProperty()
     run_text = StringProperty()
     score_text = StringProperty()
 
     run = ObjectProperty()
+    style = ObjectProperty()
 
-    def setRun(self, run):
-        self.run = run
+    def on_enter(self):
+        self.setFocus(self.ids["time_input"])
+
+    def on_run(self, *args):
         self.updateDisplay()
 
     def updateScore(self, targets, time):
         if self.run:
             self.run.targetValuesFromString(targets)
             self.run.time = float(time)
-            self.on_run()
 
-    def on_run(self, *args, **kwargs):
-        self.updateDisplay()
+    def targets_filter(self, substring, undo=False):
+        return substring if substring in self.run.runSettings.possibleStringValues else ""
 
     def updateDisplay(self):
         if self.run:
             self.competitor_text = self.run.competitor.riderName
             self.run_text = "Run {}".format(self.run.displayRunNumber)
             self.score_text = "Score : {}".format(self.run.score())
+            self.configureTextInputs(
+                settings=self.run.runSettings,
+                targets=self.ids["targets_input"],
+                time=self.ids["time_input"],
+            )
+
+    def configureTextInputs(self, settings, time, targets):
+        time.hint_text = "{}".format(settings.maxTime or 0.)
+        targets.hint_text = "".join(settings.possibleStringValues or "")
 
     def validate(self, next_by="competitors", direction=1):
         app = HoarseApp.get()
         try:
             new_run = app.competition.tests[0].getNextRun(self.run, next_by=next_by, direction=direction)
-            if new_run != self.run:
-                self.setRun(new_run)
         except app.competition.tests[0].NoMoreRuns:
             result_screen = app.root.ids["result_screen"]
             result_screen.print_results(app.competition.tests[0])
             app.switch_screen("result-screen")
+            return
+
+        visual_directon = {
+            ('competitors', -1): "right",
+            ('competitors', 1): "left",
+            ('runs', -1): "down",
+            ('runs', 1): "up",
+        }[(next_by, direction)]
+
+        if new_run != self.run:
+            self.clear()
+            new_screen = app.root.ids["run_screens"].toggle(visual_directon)
+            new_screen.run = new_run
+            new_screen.clear()
+
+    def clear(self):
+        self.ids["time_input"].value = ""
+        self.ids["targets_input"].value = ""
 
 
 class ResultScreen(BoxLayout):
@@ -84,10 +120,21 @@ class ResultScreen(BoxLayout):
     def print_results(self, test):
         results = TestResults(test)
         results.dumpToCsv("tmp")
-        rank = 1
-        for competitor in results.ranking():
+        for rank, competitor in results.ranking():
             self.add_result(rank=rank, name=competitor.riderName, score=results.scoresPerCompetitors[competitor])
-            rank += 1
+
+
+class ToggleScreenManager(ScreenManager):
+
+    @property
+    def run_screen(self):
+        return self.current_screen.children[0]
+
+    def toggle(self, direction):
+        self.transition.direction = direction
+        new_screen = self.screens[int(not self.screens.index(self.current_screen))]
+        self.current = new_screen.name
+        return self.run_screen
 
 
 class ResultLine(BoxLayout):
@@ -121,7 +168,7 @@ class SettingField(BoxLayout):
         self.ids["val"].text = "{}".format(val)
 
 
-class CompetitorsManagementMenu(FloatLayout):
+class CompetitorsManagementMenu(FocusMixin, FloatLayout):
     counter = NumericProperty(0)
 
     def __init__(self, *args, **kwargs):
@@ -156,10 +203,7 @@ class CompetitorsManagementMenu(FloatLayout):
             self.ids['competitors_list'].add_widget(competitor_line)
             text_input.text = ""
 
-        def setFocus(*args, **kwargs):
-            self.ids['competitor_input'].focus = True
-
-        Clock.schedule_once(setFocus)
+        self.setFocus(self.ids['competitor_input'])
 
     def validate(self):
         app = HoarseApp.get()

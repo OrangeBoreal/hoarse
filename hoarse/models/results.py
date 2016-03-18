@@ -11,16 +11,16 @@ class TestResults(object):
 
     def ranking(self):
 
-        def score_get(score_tuple):
-            return score_tuple[1]
+        def score_get(element):
+            return element[1]
 
         ranked = sorted(self.scoresPerCompetitors.items(), key=score_get, reverse=True)
         rank = 1
 
         for score, competitors in groupby(ranked, key=score_get):
             rank_at_start = rank
-            for competitor in competitors:
-                yield rank_at_start, competitor
+            for competitor_tuple in competitors:
+                yield rank_at_start, competitor_tuple[0]
                 rank += 1
 
     def dumpToCsv(self, filename):
