@@ -138,10 +138,10 @@ class CompetitorsManagementMenu(FloatLayout):
 
     @property
     def competitors(self):
-        return [
+        return sorted([
             line.competitor
             for line in self.ids['competitors_list'].children
-        ]
+        ], key=lambda competitor: competitor.id)
 
     def add_competitor(self, riderName):
         text_input = self.ids['competitor_input']
