@@ -96,21 +96,19 @@ class ResultLine(BoxLayout):
         self.ids["rank"].text = "{}".format(rank)
         self.ids["name"].text = name
         self.ids["score"].text = "{}".format(score)
-        
-        
-class SettingsMenu(StackLayout):    
+
+
+class SettingsMenu(StackLayout):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         field = SettingField("nruns", "Number of runs", 0)
         self.add_widget(field)
-    
+
 
 class HungarianSettingsMenu(SettingsMenu):
     def setValues(self, styleSettings):
         self.ids['nruns'].setValue(styleSettings.numberOfRuns)
-        
-    
-    
+
 
 class SettingField(BoxLayout):
     def __init__(self, i, text, defaultValue):
@@ -118,8 +116,10 @@ class SettingField(BoxLayout):
         self.id = i
         self.ids["text"].text = text
         self.ids["val"].text = "{}".format(defaultValue)
+
     def setValue(self, val):
         self.ids["val"].text = "{}".format(val)
+
 
 class CompetitorsManagementMenu(FloatLayout):
     counter = NumericProperty(0)
