@@ -220,6 +220,10 @@ class CompetitorLine(BoxLayout):
         self.ids["name"].text = competitor.riderName
 
 
+class HoarseMain(BoxLayout):
+    screen_manager = ObjectProperty(None)
+
+
 class HoarseApp(App):
     competition = Competition()
 
@@ -236,10 +240,6 @@ class HoarseApp(App):
 
     def switch_screen(self, name):
         self.screen_manager.current = name
-
-
-class HoarseMain(BoxLayout):
-    screen_manager = ObjectProperty(None)
 
 
 if __name__ == "__main__":
