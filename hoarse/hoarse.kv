@@ -21,6 +21,9 @@
 	    	name: 'substyle-korean'
 	    	SubstyleKoreanMenu
 	    Screen:
+	    	name: 'hungarian-settings'
+	    	HungarianSettingsMenu
+	    Screen:
 	    	name: 'run-screen'
 	    	on_enter: run_screen.ids["time_input"].focus=True
 	    	RunScreen:
@@ -230,6 +233,18 @@
 	Label:
 		id: score
 		size_hint: (.2, 1)
+
+<HungarianSettingsMenu>:
+
+
+
+<SettingField>:
+	orientation:'vertical'
+	Label:
+		size_hint: (.1, .1)
+	TextInput:	
+		size_hint: (.1, .1)
+		 
 
 
 
