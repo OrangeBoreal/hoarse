@@ -1,3 +1,4 @@
+# Standard Library
 from itertools import groupby
 
 
@@ -20,7 +21,7 @@ class TestResults(object):
         for score, competitors in groupby(ranked, key=score_get):
             rank_at_start = rank
             for competitor_tuple in competitors:
-                yield rank_at_start, competitor_tuple[0]
+                yield rank_at_start, competitor_tuple[0], score
                 rank += 1
 
     def dumpToCsv(self, filename):
@@ -30,10 +31,10 @@ class TestResults(object):
                 csvfile.write("Run %d time, Run %d target points" % (runNumber + 1, runNumber + 1))
             csvfile.write("\n")
 
-            for rank, competitor in self.ranking():
+            for rank, competitor, score in self.ranking():
                 csvfile.write("%d, %s, %s, %f," % (
                     rank, competitor.riderName,
-                    competitor.horseName, self.scoresPerCompetitors[competitor]
+                    competitor.horseName, score
                 ))
                 for runNumber in range(self.test.totalRunNumber):
                     run = self.test.runs[(runNumber, competitor)]

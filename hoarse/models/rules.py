@@ -12,7 +12,7 @@ class RunSettings(object):
     timeMalus = None
     numberOfTargets = None
     multipleArrowsPerTarget = None
-    possibleValues = None
+    possibleValues = []
     targetBonus = None
     numberOfRuns = None
     numberOfUntimedRuns = None
