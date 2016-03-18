@@ -1,17 +1,20 @@
+# Kivy
 import kivy
-from kivy.clock import Clock
 from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.anchorlayout import AnchorLayout
-from kivy.uix.widget import Widget
-from kivy.uix.textinput import TextInput
+from kivy.clock import Clock
 from kivy.graphics import Rectangle
-from kivy.properties import StringProperty,  ObjectProperty, NumericProperty
+from kivy.properties import NumericProperty, ObjectProperty, StringProperty
+from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.widget import Widget
 
+# Hoarse
 from hoarse.models import Competition, Competitor, TestResults
 from hoarse.models.rules import HungarianStyleSettings
+
 
 class StyleButton(Button):
     name = StringProperty()
@@ -61,7 +64,7 @@ class RunScreen(FloatLayout):
             self.competitor_text = self.run.competitor.riderName
             self.run_text = "Run {}".format(self.run.displayRunNumber)
             self.score_text = "Score : {}".format(self.run.score())
-            
+
     def validate(self, by="competitors", direction=1):
         app = HoarseApp.get()
         try:
@@ -72,29 +75,29 @@ class RunScreen(FloatLayout):
             result_screen = app.root.ids["result_screen"]
             result_screen.print_results(app.competition.tests[0])
             app.switch_screen("result-screen")
-            
+
 class ResultScreen(BoxLayout):
     def add_result(self, rank, name, score):
         result_line = ResultLine(rank=rank, name=name, score=score)
         self.ids['results_list'].add_widget(result_line)
-        
-    def print_results(self, test):        
-        results = TestResults(test) 
+
+    def print_results(self, test):
+        results = TestResults(test)
         results.dumpToCsv("tmp")
         rank = 1
         for competitor in results.ranking():
             self.add_result(rank=rank, name=competitor.riderName, score=results.scoresPerCompetitors[competitor])
-            rank+=1
-        
-        
+            rank += 1
+
+
 class ResultLine(BoxLayout):
     def __init__(self, rank, name, score):
         super().__init__()
         self.ids["rank"].text = "{}".format(rank)
         self.ids["name"].text = name
         self.ids["score"].text = "{}".format(score)
-        
-        
+
+
 
 class CompetitorsManagementMenu(FloatLayout):
     counter = NumericProperty(0)

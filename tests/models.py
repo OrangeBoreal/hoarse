@@ -1,7 +1,8 @@
+# Standard Library
 import unittest
-from hoarse.models import (
-    Run, Competitor, CompetitionTest, Competition
-)
+
+# Hoarse
+from hoarse.models import Competition, CompetitionTest, Competitor, Run
 from hoarse.models.rules import HungarianStyleSettings
 
 
