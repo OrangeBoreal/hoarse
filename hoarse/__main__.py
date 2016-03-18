@@ -5,6 +5,7 @@ from kivy.properties import NumericProperty, ObjectProperty, StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.stacklayout import StackLayout
 
 # Hoarse
 from hoarse.models import Competition, Competitor, TestResults
@@ -95,7 +96,30 @@ class ResultLine(BoxLayout):
         self.ids["rank"].text = "{}".format(rank)
         self.ids["name"].text = name
         self.ids["score"].text = "{}".format(score)
+        
+        
+class SettingsMenu(StackLayout):    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        field = SettingField("nruns", "Number of runs", 0)
+        self.add_widget(field)
+    
 
+class HungarianSettingsMenu(SettingsMenu):
+    def setValues(self, styleSettings):
+        self.ids['nruns'].setValue(styleSettings.numberOfRuns)
+        
+    
+    
+
+class SettingField(BoxLayout):
+    def __init__(self, i, text, defaultValue):
+        super().__init__()
+        self.id = i
+        self.ids["text"].text = text
+        self.ids["val"].text = "{}".format(defaultValue)
+    def setValue(self, val):
+        self.ids["val"].text = "{}".format(val)
 
 class CompetitorsManagementMenu(FloatLayout):
     counter = NumericProperty(0)
