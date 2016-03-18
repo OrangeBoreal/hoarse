@@ -11,27 +11,27 @@
 
 	ScreenManager:
 		id: screen_manager
-	    Screen:
-	    	name: 'competitors-management'
-	    	CompetitorsManagementMenu
-	    Screen:
-	    	name: 'style-menu'
-	    	StyleMenu
-	    Screen:
-	    	name: 'substyle-korean'
-	    	SubstyleKoreanMenu
-	    Screen:
-	    	name: 'hungarian-settings'
-	    	HungarianSettingsMenu
-	    Screen:
-	    	name: 'run-screen'
-	    	on_enter: run_screen.ids["time_input"].focus=True
-	    	RunScreen:
-	    		id: run_screen
-	    Screen:
-	    	name: 'result-screen'
-	    	ResultScreen:
-	    		id: result_screen
+		Screen:
+			name: 'competitors-management'
+			CompetitorsManagementMenu
+		Screen:
+			name: 'style-menu'
+			StyleMenu
+		Screen:
+			name: 'substyle-korean'
+			SubstyleKoreanMenu
+		Screen:
+			name: 'hungarian-settings'
+			HungarianSettingsMenu
+		Screen:
+			name: 'run-screen'
+			on_enter: run_screen.ids["time_input"].focus=True
+			RunScreen:
+				id: run_screen
+		Screen:
+			name: 'result-screen'
+			ResultScreen:
+				id: result_screen
 
 
 <StyleMenu>:
@@ -234,18 +234,17 @@
 		id: score
 		size_hint: (.2, 1)
 
-<HungarianSettingsMenu>:
-
+<HungarianSettingsMenu>
 
 
 <SettingField>:
 	orientation:'vertical'
 	Label:
+		id: text
 		size_hint: (.1, .1)
-	TextInput:	
+	TextInput:
+		id: val
 		size_hint: (.1, .1)
-		 
-
 
 
 <TextInput>:
