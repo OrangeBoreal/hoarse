@@ -1,4 +1,8 @@
 #:kivy 1.9.1
+#:import * hoarse.ui.competitors
+#:import * hoarse.ui.settings
+#:import * hoarse.ui.runs
+#:import * hoarse.ui.results
 
 <HoarseMain>:
 
@@ -120,14 +124,17 @@
 		text: "Add"
 		on_press: root.add_competitor(competitor_input.text)
 
-	BoxLayout:
+	ScrollView:
 		size_hint: (.8, .65)
 		pos_hint: {"center_x": .5, "top": 0.75}
-
-		id: competitors_list
-		orientation: 'vertical'
-		spacing: 5
-		padding: 5
+		do_scroll_x: False
+		BoxLayout:
+			minimum_height: self.parent.height
+			size_hint_y: None
+			id: competitors_list
+			orientation: 'vertical'
+			spacing: 5
+			padding: 5
 
 	Button:
 		size_hint: (.15, .05)
