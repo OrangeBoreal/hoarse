@@ -82,12 +82,13 @@ class CompetitionTest(object):
                 runNumber += direction
         elif next_by == "competitors":
             keys = list(self.runs.keys())  # Already sorted because it comes from an OrderedDict
-            index = keys.index(runNumber, competitor)
+            index = keys.index((runNumber, competitor))
             new_index = index + direction
-            if 0 <= new_index < self.totalRunNumber:
+            if 0 <= new_index < len(keys):
                 runNumber, competitor = keys[new_index]
             elif new_index > self.totalRunNumber:
                 raise self.NoMoreRuns()
+
         return self.runs[(runNumber, competitor)]
 
     @property

@@ -1,4 +1,8 @@
 #:kivy 1.9.1
+#:import * hoarse.ui.competitors
+#:import * hoarse.ui.settings
+#:import * hoarse.ui.runs
+#:import * hoarse.ui.results
 
 <HoarseMain>:
 
@@ -11,27 +15,36 @@
 
 	ScreenManager:
 		id: screen_manager
-	    Screen:
-	    	name: 'competitors-management'
-	    	CompetitorsManagementMenu
-	    Screen:
-	    	name: 'style-menu'
-	    	StyleMenu
-	    Screen:
-	    	name: 'substyle-korean'
-	    	SubstyleKoreanMenu
-	    Screen:
-	    	name: 'hungarian-settings'
-	    	HungarianSettingsMenu
-	    Screen:
-	    	name: 'run-screen'
-	    	on_enter: run_screen.ids["time_input"].focus=True
-	    	RunScreen:
-	    		id: run_screen
-	    Screen:
-	    	name: 'result-screen'
-	    	ResultScreen:
-	    		id: result_screen
+		Screen:
+			name: 'competitors-management'
+			CompetitorsManagementMenu
+		Screen:
+			name: 'style-menu'
+			StyleMenu
+		Screen:
+			name: 'substyle-korean'
+			SubstyleKoreanMenu
+		Screen:
+			name: 'hungarian-settings'
+			HungarianSettingsMenu
+		Screen:
+			name: 'run-screens'
+			on_enter: run_screens.run_screen.on_enter()
+			ToggleScreenManager:
+				id: run_screens
+				Screen:
+					on_enter: self.children[0].on_enter()
+					name: 'screen-1'
+					RunScreen:
+				Screen:
+					on_enter: self.children[0].on_enter()
+					name: 'screen-2'
+					RunScreen:
+
+		Screen:
+			name: 'result-screen'
+			ResultScreen:
+				id: result_screen
 
 
 <StyleMenu>:
@@ -111,14 +124,17 @@
 		text: "Add"
 		on_press: root.add_competitor(competitor_input.text)
 
-	BoxLayout:
+	ScrollView:
 		size_hint: (.8, .65)
 		pos_hint: {"center_x": .5, "top": 0.75}
-
-		id: competitors_list
-		orientation: 'vertical'
-		spacing: 5
-		padding: 5
+		do_scroll_x: False
+		BoxLayout:
+			minimum_height: self.parent.height
+			size_hint_y: None
+			id: competitors_list
+			orientation: 'vertical'
+			spacing: 5
+			padding: 5
 
 	Button:
 		size_hint: (.15, .05)
@@ -171,38 +187,45 @@
 
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .85, 'x':.2}
+		pos_hint: {'top': .85, 'x':.2}
 		text: root.competitor_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .75, 'x':.2}
+		pos_hint: {'top': .75, 'x':.2}
 		text: root.run_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .65, 'x':.2}
+		pos_hint: {'top': .65, 'x':.2}
 		text: root.score_text
 
 	Label:
 		size_hint: (.3, .1)
 		pos_hint:{'top': .6, 'x':.2}
 		text: "Time"
+
 	TextInput:
 		id: time_input
 		multiline: False
 		size_hint: (.3, None)
-		pos_hint:{'top': .5, 'x':.2}
+		pos_hint: {'top': .5, 'x':.2}
+		input_filter: "float"
 		on_text: root.updateScore(targets_input.text, time_input.text)
+		write_tab: False
+		focus_next: targets_input
 
 	Label:
 		size_hint: (.3, .1)
-		pos_hint:{'top': .6, 'right': .8}
+		pos_hint: {'top': .6, 'right': .8}
 		text: "Target points"
 	TextInput:
 		id: targets_input
 		multiline: False
 		size_hint: (.3, None)
-		pos_hint:{'top': .5, 'right': .8}
+		pos_hint: {'top': .5, 'right': .8}
+		input_filter: root.targets_filter
 		on_text: root.updateScore(targets_input.text, time_input.text)
+		write_tab: False
+		focus_previous: time_input
 
 
 <ResultScreen>:
@@ -234,18 +257,17 @@
 		id: score
 		size_hint: (.2, 1)
 
-<HungarianSettingsMenu>:
-
+<HungarianSettingsMenu>
 
 
 <SettingField>:
 	orientation:'vertical'
 	Label:
+		id: text
 		size_hint: (.1, .1)
-	TextInput:	
+	TextInput:
+		id: val
 		size_hint: (.1, .1)
-		 
-
 
 
 <TextInput>:

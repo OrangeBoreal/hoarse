@@ -1,3 +1,7 @@
+# Standard Library
+from itertools import groupby
+
+
 class TestResults(object):
     """
     Compute the results of a test, ie the ranking of all competitors per score
@@ -7,20 +11,30 @@ class TestResults(object):
         self.scoresPerCompetitors = test.getScoresPerCompetitor(doSum=True)
 
     def ranking(self):
-        return [c for c in sorted(self.scoresPerCompetitors, key=self.scoresPerCompetitors.get, reverse=True)]
+
+        def score_get(element):
+            return element[1]
+
+        ranked = sorted(self.scoresPerCompetitors.items(), key=score_get, reverse=True)
+        rank = 1
+
+        for score, competitors in groupby(ranked, key=score_get):
+            rank_at_start = rank
+            for competitor_tuple in competitors:
+                yield rank_at_start, competitor_tuple[0], score
+                rank += 1
 
     def dumpToCsv(self, filename):
-        rank = 1
         with open("%s.csv" % filename, 'w') as csvfile:
             csvfile.write("Rank, Rider name, Horse name, Score, Target points,")
             for runNumber in range(self.test.totalRunNumber):
                 csvfile.write("Run %d time, Run %d target points" % (runNumber + 1, runNumber + 1))
             csvfile.write("\n")
-            ranking = self.ranking()
-            for competitor in ranking:
+
+            for rank, competitor, score in self.ranking():
                 csvfile.write("%d, %s, %s, %f," % (
                     rank, competitor.riderName,
-                    competitor.horseName, self.scoresPerCompetitors[competitor]
+                    competitor.horseName, score
                 ))
                 for runNumber in range(self.test.totalRunNumber):
                     run = self.test.runs[(runNumber, competitor)]
