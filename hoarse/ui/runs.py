@@ -50,7 +50,7 @@ class RunScreen(FocusMixin, FloatLayout):
         targets.hint_text = "".join(settings.possibleStringValues or "")
 
     def validate(self, next_by="competitors", direction=1):
-        app = HoarseApp.get()
+        app = HoarseApp.get()        
         try:
             new_run = app.competition.tests[0].getNextRun(self.run, next_by=next_by, direction=direction)
         except app.competition.tests[0].NoMoreRuns:
@@ -65,12 +65,19 @@ class RunScreen(FocusMixin, FloatLayout):
             ('runs', -1): "down",
             ('runs', 1): "up",
         }[(next_by, direction)]
+        
+        
+#        print(self.run.runNumber, self.run.competitor.riderName,\
+#        app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
 
         if new_run != self.run:
-            self.clear()
             new_screen = app.root.ids["run_screens"].toggle(visual_direction)
             new_screen.run = new_run
             new_screen.clear()
+        
+            #the self.run.score() is reset between the two print()
+#            print(self.run.runNumber, self.run.competitor.riderName,\
+#            app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
 
     def clear(self):
         self.ids["time_input"].text = ""

@@ -13,6 +13,7 @@ class ResultScreen(BoxLayout):
     def print_results(self, test):
         results = TestResults(test)
         results.dumpToCsv("tmp")
+        results.dumpRaw("raw")
         for rank, competitor, score in results.ranking():
             self.add_result(rank=rank, name=competitor.riderName, score=score)
 

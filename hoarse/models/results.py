@@ -28,7 +28,7 @@ class TestResults(object):
         with open("%s.csv" % filename, 'w') as csvfile:
             csvfile.write("Rank, Rider name, Horse name, Score, Target points,")
             for runNumber in range(self.test.totalRunNumber):
-                csvfile.write("Run %d time, Run %d target points" % (runNumber + 1, runNumber + 1))
+                csvfile.write("Run %d time, Run %d target points," % (runNumber + 1, runNumber + 1))
             csvfile.write("\n")
 
             for rank, competitor, score in self.ranking():
@@ -47,3 +47,16 @@ class TestResults(object):
                     except TypeError:
                         csvfile.write("0,")
                 csvfile.write("\n")
+                
+    def dumpRaw(self, filename):
+        with open("%s.csv" % filename, 'w') as csvfile:
+            csvfile.write("Rider name, Run number, Run time, Run target points, Run score \n")            
+            for num, comp in self.test.runs:
+                csvfile.write("%s," % (comp.riderName))
+                csvfile.write("%d," % (num))
+                run = self.test.runs[(num,comp)]
+                csvfile.write("%f," % (run.time))
+                csvfile.write("%f," % (run.targetScore()))
+                csvfile.write("%f\n" % (run.score()))
+            
+
