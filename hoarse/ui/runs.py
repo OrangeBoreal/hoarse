@@ -25,7 +25,10 @@ class RunScreen(FocusMixin, FloatLayout):
     def updateScore(self, targets, time):
         if self.run:
             self.run.targetValuesFromString(targets)
-            self.run.time = float(time)
+            try:
+                self.run.time = float(time)
+            except ValueError:
+                self.run.time = 0
 
     def targets_filter(self, substring, undo=False):
         return substring if substring in self.run.runSettings.possibleStringValues else ""
@@ -56,7 +59,7 @@ class RunScreen(FocusMixin, FloatLayout):
             app.switch_screen("result-screen")
             return
 
-        visual_directon = {
+        visual_direction = {
             ('competitors', -1): "right",
             ('competitors', 1): "left",
             ('runs', -1): "down",
@@ -65,13 +68,13 @@ class RunScreen(FocusMixin, FloatLayout):
 
         if new_run != self.run:
             self.clear()
-            new_screen = app.root.ids["run_screens"].toggle(visual_directon)
+            new_screen = app.root.ids["run_screens"].toggle(visual_direction)
             new_screen.run = new_run
             new_screen.clear()
 
     def clear(self):
-        self.ids["time_input"].value = ""
-        self.ids["targets_input"].value = ""
+        self.ids["time_input"].text = ""
+        self.ids["targets_input"].text = ""
 
 
 class ToggleScreenManager(ScreenManager):

@@ -2,7 +2,7 @@
 
 # Linting
 pep8==1.7.0
-pylint=1.5.4
+pylint==1.5.4
 isort==4.2.2
 
 # Operations

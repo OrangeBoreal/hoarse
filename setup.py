@@ -8,5 +8,5 @@ setup(
     install_requires=[
         "kivy==1.9.1",
         "Cython==0.23",
-    ]
+    ],
 )
