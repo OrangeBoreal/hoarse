@@ -4,6 +4,7 @@
 #:import * hoarse.ui.runs
 #:import * hoarse.ui.results
 
+
 <HoarseMain>:
 
 	canvas:
@@ -100,7 +101,6 @@
 			name: "k235"
 
 <CompetitorsManagementMenu>:
-
 	Label:
 		text: "Enter the competitors' names"
 		size_hint: (.8, .1)
@@ -115,7 +115,7 @@
 		size_hint: (.63, None)
 		pos_hint: {"x": .1, "top": 0.89}
 		on_text_validate: root.add_competitor(self.text)
-		on_text: self.foreground_color = (0, 0, 0, 1)
+		on_text: root.set_error_style(False)
 
 	Button:
 		height: competitor_input.height
@@ -124,9 +124,15 @@
 		text: "Add"
 		on_press: root.add_competitor(competitor_input.text)
 
+	Widget:
+		id: drag_area
+		size_hint: (.8, .65)
+		pos_hint: {"center_x": .5, "top": 0.75}
+
 	ScrollView:
 		size_hint: (.8, .65)
 		pos_hint: {"center_x": .5, "top": 0.75}
+		id: scroll_view
 		GridLayout:
 			cols: 1
 			size_hint_y: None
@@ -143,22 +149,32 @@
 		disabled: root.counter < 2
 
 <CompetitorLine>:
-	height: 100
 	size_hint_y: None
+	height: 100
+	BoxLayout:
+		height: 100
+		size_hint_y: None
+		id: content
 
-	canvas:
-		Color:
-			rgb: (0, 0.3, 0.3)
-		Rectangle:
-			size: root.size
-			pos: root.pos
+		Button:
+			id: drag_button
+			text: "move"
+			size_hint: (.1, 1)
 
-	Label:
-		id: competitorGroup
-		size_hint: (.2, 1)
-	Label:
-		id: name
-		size_hint: (.8, 1)
+		Label:
+			id: competitorGroup
+			size_hint: (.2, 1)
+		Label:
+			id: name
+			size_hint: (.7, 1)
+
+		Button:
+			id: delete
+			text: "x"
+			size_hint: (.1, 1)
+			background_normal: ""
+			background_color: (0.7, 0, 0, 1)
+			on_press: root.on_delete()
 
 
 <RunScreen>:
