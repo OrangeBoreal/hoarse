@@ -127,12 +127,11 @@
 	ScrollView:
 		size_hint: (.8, .65)
 		pos_hint: {"center_x": .5, "top": 0.75}
-		do_scroll_x: False
-		BoxLayout:
-			minimum_height: self.parent.height
+		GridLayout:
+			cols: 1
 			size_hint_y: None
+			height: self.minimum_height
 			id: competitors_list
-			orientation: 'vertical'
 			spacing: 5
 			padding: 5
 
