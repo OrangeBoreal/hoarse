@@ -32,9 +32,9 @@ class TestResults(object):
             csvfile.write("\n")
 
             for rank, competitor, score in self.ranking():
-                csvfile.write("%d, %s, %s, %f," % (
+                csvfile.write("%d, %s, %s, %f, %f," % (
                     rank, competitor.riderName,
-                    competitor.horseName, score
+                    competitor.horseName, score, 0 #TODO add target score
                 ))
                 for runNumber in range(self.test.totalRunNumber):
                     run = self.test.runs[(runNumber, competitor)]
