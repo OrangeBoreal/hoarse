@@ -23,8 +23,8 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
             # debug :)
             names = (
                 "Athalie,Bérénice,Célestine,Diogène,Electre,Figaro,Genghis,Hippocrate,"
-                "Iphigénie,Jocaste,K,Ludwig,Melenas,Nausicaa,Ophélie,Phèdre,Rhéa,Sixtine,"
-                "Terpsichore,Ulysse,Vulcain,Wilfried,Xénophon,Y,Zaccharie"
+                "Iphigénie,Jocaste,Kevin,Ludwig,Melenas,Nausicaa,Ophélie,Phèdre,Rhéa,Sixtine,"
+                "Terpsichore,Ulysse,Vulcain,Wilfried,Xénophon,Yoam,Zaccharie"
             ).split(",")
             for name in names:
                 self.add_competitor(name)
