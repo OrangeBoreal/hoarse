@@ -54,12 +54,22 @@ class CompetitionTest(object):
             ...
         }
         """
-        aggregate = sum if doSum else list
-
-        return {
-            competitor: aggregate(run.score() for run in runs)
-            for competitor, runs in groupby(self.runsByCompetitors(), key=lambda x: x.competitor)
-        }
+        competitorList = []
+        scoreList = []
+        
+        for competitor, runs in groupby(self.runsByCompetitors(), key=lambda x: x.competitor):
+            competitorList.append(competitor)
+            if doSum:
+                total = 0
+                target = 0
+                for run in runs:      
+                    total += run.score() 
+                    target += run.targetScore()
+                scoreList.append((total,target))
+            else:
+                scoreList.append([(run.score(), run.targetScore()) for run in runs])
+        return dict(zip(competitorList, scoreList))
+    
 
     def runsByCompetitors(self):
         """

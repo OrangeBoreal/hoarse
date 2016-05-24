@@ -13,15 +13,17 @@ class TestResults(object):
     def ranking(self):
 
         def score_get(element):
-            return element[1]
+            return element[1][0]
 
         ranked = sorted(self.scoresPerCompetitors.items(), key=score_get, reverse=True)
+        
         rank = 1
 
         for score, competitors in groupby(ranked, key=score_get):
             rank_at_start = rank
             for competitor_tuple in competitors:
-                yield rank_at_start, competitor_tuple[0], score
+                #competitor_tuple = (competitor name, (total score, target score))
+                yield rank_at_start, competitor_tuple[0], competitor_tuple[1][0], competitor_tuple[1][1]
                 rank += 1
 
     def dumpToCsv(self, filename):
@@ -31,10 +33,10 @@ class TestResults(object):
                 csvfile.write("Run %d time, Run %d target points," % (runNumber + 1, runNumber + 1))
             csvfile.write("\n")
 
-            for rank, competitor, score in self.ranking():
+            for rank, competitor, score, targetScore in self.ranking():
                 csvfile.write("%d, %s, %s, %f, %f," % (
                     rank, competitor.riderName,
-                    competitor.horseName, score, 0 #TODO add target score
+                    competitor.horseName, score, targetScore 
                 ))
                 for runNumber in range(self.test.totalRunNumber):
                     run = self.test.runs[(runNumber, competitor)]

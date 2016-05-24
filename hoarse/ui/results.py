@@ -14,7 +14,7 @@ class ResultScreen(BoxLayout):
         results = TestResults(test)
         results.dumpToCsv("tmp")
         results.dumpRaw("raw")
-        for rank, competitor, score in results.ranking():
+        for rank, competitor, score, _ in results.ranking():
             self.add_result(rank=rank, name=competitor.riderName, score=score)
 
 

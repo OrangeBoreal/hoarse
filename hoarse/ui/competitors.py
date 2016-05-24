@@ -20,12 +20,15 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
         super().__init__(*args, **kwargs)
 
         def addMockContent(*args, **kwargs):
-            # debug :)
+            # debug competitor management
             names = (
                 "Athalie,Bérénice,Célestine,Diogène,Electre,Figaro,Genghis,Hippocrate,"
                 "Iphigénie,Jocaste,Kevin,Ludwig,Melenas,Nausicaa,Ophélie,Phèdre,Rhéa,Sixtine,"
                 "Terpsichore,Ulysse,Vulcain,Wilfried,Xénophon,Yoam,Zaccharie"
             ).split(",")
+            #debug other purposes
+            names = ("Athalie,Bérénice,Célestine").split(",")
+            
             for name in names:
                 self.add_competitor(name)
 
