@@ -29,19 +29,30 @@ class CompetitionTest(object):
     """
     def __init__(self, competition, styleSettings):
         self.competition = competition
+        #hungarian, korean, ...
         self.styleSettings = styleSettings
+        #the tedious details of the aforementioned style
         self.runSettings = list(styleSettings.createRunSettings())
-
+        #the number of runs in the style (eg hungarian: 9, korean: 6)
         self.totalRunNumber = len(self.runSettings)
+        #the list of groups for this test
+        self.groups = []
+        for competitor in self.competitors:
+            if competitor.group not in self.groups:
+                self.groups.append(competitor.group)        
 
+        #is it initialized before or after group are set?
+        #seems to be initialized just before the first run setting
+        #how about if we change the groups afterwards?
         self.runs = OrderedDict()
-        for runNumber, runSettings in enumerate(self.runSettings):
-            for competitor in self.competitors:
-                self.runs[(runNumber, competitor)] = Run(
-                    runNumber=runNumber,
-                    runSettings=runSettings,
-                    competitor=competitor,
-                )
+        for group in self.groups:
+            for runNumber, runSettings in enumerate(self.runSettings):
+                for competitor in self.competitors:
+                    self.runs[(group, runNumber, competitor)] = Run(
+                        runNumber=runNumber,
+                        runSettings=runSettings,
+                        competitor=competitor,
+                    )
 
     class NoMoreRuns(Exception):
         pass
@@ -87,19 +98,22 @@ class CompetitionTest(object):
         direction can be 1 or -1
         """
         runNumber, competitor = currentRun.runNumber, currentRun.competitor
+        group = competitor.group
+        print(group)
         if next_by == "runs":
             if 0 <= runNumber + direction < self.totalRunNumber:
                 runNumber += direction
         elif next_by == "competitors":
             keys = list(self.runs.keys())  # Already sorted because it comes from an OrderedDict
-            index = keys.index((runNumber, competitor))
+            print(keys)
+            index = keys.index((group, runNumber, competitor))            
             new_index = index + direction
             if 0 <= new_index < len(keys):
-                runNumber, competitor = keys[new_index]
+                group, runNumber, competitor = keys[new_index]
             elif new_index > self.totalRunNumber:
                 raise self.NoMoreRuns()
 
-        return self.runs[(runNumber, competitor)]
+        return self.runs[(group, runNumber, competitor)]
 
     @property
     def competitors(self):

@@ -14,4 +14,8 @@ class Competitor(IDMixin):
 
     @property
     def orderInGroup(self):
+        #I think it is bugged.... since self.group is an int
         return self.group.competitors.index(self)
+
+
+#define a class for groups of competitors ?
