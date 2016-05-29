@@ -26,9 +26,10 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
                 "Iphigénie,Jocaste,Kevin,Ludwig,Melenas,Nausicaa,Ophélie,Phèdre,Rhéa,Sixtine,"
                 "Terpsichore,Ulysse,Vulcain,Wilfried,Xénophon,Yoam,Zaccharie"
             ).split(",")
-            #debug other purposes
-           # names = ("Athalie,Bérénice,Célestine").split(",")
-            
+
+            # debug other purposes
+            # names = ("Athalie,Bérénice,Célestine").split(",")
+
             for name in names:
                 self.add_competitor(name)
 
@@ -36,10 +37,14 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
 
     @property
     def competitors(self):
+        return [line.competitor for line in self.lines]
+
+    @property
+    def lines(self):
         return sorted([
-            line.competitor
+            line
             for line in self.ids['competitors_list'].children
-        ], key=lambda competitor: competitor.id)
+        ], key=lambda line: line.competitor.id)
 
     def set_error_style(self, error=True):
         text_input = self.ids['competitor_input']
@@ -52,7 +57,8 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
         return group
 
     def add_competitor(self, riderName):
-        if riderName == "" or riderName in {competitor.riderName for competitor in self.competitors}:
+        existingNames = {competitor.riderName for competitor in self.competitors}
+        if riderName == "" or riderName in existingNames:
             self.set_error_style(True)
         else:
             competitor_line = CompetitorLine(
@@ -72,7 +78,11 @@ class CompetitorsManagementMenu(FocusMixin, FloatLayout):
 
     def validate(self):
         app = HoarseApp.get()
-        app.competition.competitors = self.competitors
+        competition = app.competition
+
+        competitorsGroupIds = [(line.competitor, line.group) for line in self.lines]
+
+        competition.computeGroups(competitorsGroupIds=competitorsGroupIds)
 
         app.switch_screen("style-menu")
 
@@ -101,12 +111,11 @@ class CompetitorLine(DraggableElement):
         self.drag_button = self.ids["drag_button"]
         self.element = self.ids["content"]
         self.duration = 0.2
-        self.competitor = Competitor(riderName=name, group=0)
+        self.competitor = Competitor(riderName=name)
         self.group = group
 
     def on_group(self, line, value=None):
         self.ids["competitorGroup"].text = "G{}".format(value)
-        self.competitor.group = value
 
     def on_delete(self):
         self.menu.remove_competitor(self)

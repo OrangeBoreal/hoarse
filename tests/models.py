@@ -7,6 +7,18 @@ from hoarse.models.rules import HungarianRunSettings, HungarianStyleSettings
 
 
 class CompetitionTest(unittest.TestCase):
+    def setUp(self):
+        self.c1 = Competitor("Athalie", group=None)
+        self.c2 = Competitor("Bérénice", group=None)
+        self.c3 = Competitor("Cléôpâtre", group=None)
+        competitors = [self.c1, self.c2, self.c3]
+
+        HungarianRunSettings.numberOfRuns = 9
+
+        self.competition = Competition()
+        self.competition.competitors = competitors
+        self.test = competition.addTest(HungarianStyleSettings())
+
     def test_compute_totals(self):
 
         def getScores():
@@ -25,28 +37,17 @@ class CompetitionTest(unittest.TestCase):
                 rawScore, time = run.split(", ")
                 yield rawScore, float(time)
 
-        c1 = Competitor("Athalie", group=None)
-        c2 = Competitor("Bérénice", group=None)
-        c3 = Competitor("Cléôpâtre", group=None)
-        competitors = [c1, c2, c3]
-
-        HungarianRunSettings.numberOfRuns = 9
-
-        competition = Competition()
-        competition.competitors = competitors
-        test = competition.addTest(HungarianStyleSettings())
-
-        self.assertEqual(len(test.runSettings), 9)
-        self.assertEqual(len(test.runs), 3 * 9)
+        self.assertEqual(len(self.test.runSettings), 9)
+        self.assertEqual(len(self.test.runs), 3 * 9)
 
         # Run the competition
         scores = getScores()
-        for score, run in zip(scores, test.runs.values()):  # it's an ordered dict, so values are in the right orider
+        for score, run in zip(scores, self.test.runs.values()):  # it's an ordered dict, so values are in the right orider
             targetScore, timeScore = score
             run.time = timeScore
             run.targetValuesFromString(targetScore)
 
-        finalScores = test.getScoresPerCompetitor()
+        finalScores = self.test.getScoresPerCompetitor()
         # 3 contestants = 3 scores
         self.assertEqual(len(finalScores), 3)
         # Each score is mad of 9 runs
@@ -55,20 +56,21 @@ class CompetitionTest(unittest.TestCase):
         self.assertEqual(
             finalScores,
             {
-                c1: [9, 9, 0] + [0] * 6,
-                c2: [6, 9, 9] + [0] * 6,
-                c3: [0, 0, 3] + [0] * 6,
+                self.c1: [9, 9, 0] + [0] * 6,
+                self.c2: [6, 9, 9] + [0] * 6,
+                self.c3: [0, 0, 3] + [0] * 6,
             }
         )
 
         self.assertEqual(
-            test.getScoresPerCompetitor(doSum=True),
+            self.test.getScoresPerCompetitor(doSum=True),
             {
-                c1: 18,
-                c2: 24,
-                c3: 3,
+                self.c1: 18,
+                self.c2: 24,
+                self.c3: 3,
             }
         )
+
 
 if __name__ == '__main__':
     unittest.main()
