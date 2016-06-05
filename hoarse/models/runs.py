@@ -12,18 +12,26 @@ class Run(IDMixin):
 
     """
 
-    def __init__(self, runNumber, runSettings, competitor):
+    def __init__(self, runNumber, runSettings, entry):
         super().__init__()
         self.completed = False
 
         self.runSettings = runSettings
         self.runNumber = runNumber
-        self.competitor = competitor
+        self.entry = entry
         self.time = None
         self.timeBonusGiven = True
         self.targetValues = None
         self.eliminated = False
         self.targetBonusGiven = False
+
+    @property
+    def competitor(self):
+        return self.entry.competitor
+
+    @property
+    def group(self):
+        return self.entry.group
 
     @property
     def displayRunNumber(self):
