@@ -112,6 +112,7 @@ class Korean123StyleSettings(KoreanStyleSettings):
 class Korean235StyleSettings(KoreanStyleSettings):
     koreanRunsSettings = [Korean2RunSettings, Korean3RunSettings, Korean5RunSettings]
 
+
 class FFEStyleSettings(StyleSettings):
 
     runsSettings = []
@@ -121,6 +122,7 @@ class FFEStyleSettings(StyleSettings):
             for __ in range(runSetting.numberOfRuns):
                 yield runSetting()
 
+
 class FFEWalkRunSettings(RunSettings):
     """
     Parameters for walk runs in FFE competitions
@@ -129,22 +131,29 @@ class FFEWalkRunSettings(RunSettings):
     maxTimeBonus = 0
     timeMalus = 0
     multipleArrowsPerTarget = True
-    possibleValues = [2,3,4]
+    possibleValues = [2, 3, 4]
+
 
 class FFECanterRunSettings(RunSettings):
     """
     Parameters for times run in FFE competitions
     """
-    eliminatingTime = self.maxTime +3
+    @property
+    def eliminatingTime(self):
+        eliminatingTime = self.maxTime + 3
+
     maxTimeBonus = 3
+
 
 class FFEWalkClub1RunSettings(FFEWalkRunSettings):
     trackLength = 60
     numberOfRuns = 1
 
+
 class FFEWalkClub2RunSettings(FFEWalkRunSettings):
     trackLength = 40
     numberOfRuns = 2
+
 
 class FFEClub1HungarianRunSettings(FFECanterRunSettings):
     """
@@ -158,18 +167,22 @@ class FFEClub1HungarianRunSettings(FFECanterRunSettings):
     possibleValues = [2, 3, 4]
     numberOfRuns = 5
 
+
 class FFEClub1Korean1RunSettings(Korean1RunSettings):
     trackLength = 60
     maxTime = 10
     numberOfRuns = 4
+
 
 class FFEClub1Korean3RunSettings(Korean3RunSettings):
     trackLength = 60
     maxTime = 10
     numberOfRuns = 2
 
+
 class FFEClub1HungarianStyleSetting(FFEStyleSettings):
     runsSettings = [FFEWalkClub1RunSettings, FFEClub1HungarianRunSettings]
+
 
 class FFEClub1KoreanStyleSetting(FFEStyleSettings):
     runsSettings = [FFEClub1Korean1RunSettings, FFEClub1Korean3RunSettings]
