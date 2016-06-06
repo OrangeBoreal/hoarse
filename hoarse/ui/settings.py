@@ -26,7 +26,8 @@ class StyleButton(Button):
         run_screen.test = test
         run_screen.run = test.getFirstUncompletedRun()
 
-        app.switch_screen("run-screens")
+        app.switch_screen('hungarian-settings')
+        # app.switch_screen("run-screens")
 
 
 class StyleMenu(BoxLayout):
