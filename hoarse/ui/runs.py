@@ -3,6 +3,8 @@ from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager
 
+from hoarse.models.exceptions import NoMoreRuns
+
 # Relative imports
 from .app import HoarseApp
 from .mixins import FocusMixin
@@ -12,6 +14,7 @@ class RunScreen(FocusMixin, FloatLayout):
     competitor_text = StringProperty()
     run_text = StringProperty()
     score_text = StringProperty()
+    group_text = StringProperty()
 
     run = ObjectProperty()
     style = ObjectProperty()
@@ -37,6 +40,7 @@ class RunScreen(FocusMixin, FloatLayout):
         if self.run:
             self.competitor_text = self.run.competitor.riderName
             self.run_text = "Run {}".format(self.run.displayRunNumber)
+            self.group_text = "Group {}".format(self.run.group.id)
             self.score_text = "Score : {}".format(self.run.score())
             self.configureTextInputs(
                 settings=self.run.runSettings,
@@ -50,10 +54,10 @@ class RunScreen(FocusMixin, FloatLayout):
         targets.hint_text = "".join(settings.possibleStringValues or "")
 
     def validate(self, next_by="competitors", direction=1):
-        app = HoarseApp.get()        
+        app = HoarseApp.get()
         try:
             new_run = app.competition.tests[0].getNextRun(self.run, next_by=next_by, direction=direction)
-        except app.competition.tests[0].NoMoreRuns:
+        except NoMoreRuns:
             result_screen = app.root.ids["result_screen"]
             result_screen.print_results(app.competition.tests[0])
             app.switch_screen("result-screen")
@@ -65,19 +69,18 @@ class RunScreen(FocusMixin, FloatLayout):
             ('runs', -1): "down",
             ('runs', 1): "up",
         }[(next_by, direction)]
-        
-        
-#        print(self.run.runNumber, self.run.competitor.riderName,\
-#        app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
+
+        # print(self.run.runNumber, self.run.competitor.riderName,\
+        # app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
 
         if new_run != self.run:
             new_screen = app.root.ids["run_screens"].toggle(visual_direction)
             new_screen.run = new_run
             new_screen.clear()
-        
-            #the self.run.score() is reset between the two print()
-#            print(self.run.runNumber, self.run.competitor.riderName,\
-#            app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
+
+            # The self.run.score() is reset between the two print()
+            # print(self.run.runNumber, self.run.competitor.riderName,\
+            # app.competition.tests[0].runs[(self.run.runNumber, self.run.competitor)].score())
 
     def clear(self):
         self.ids["time_input"].text = ""

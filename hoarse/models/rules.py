@@ -15,7 +15,6 @@ class RunSettings(object):
     possibleValues = []
     targetBonus = None
     numberOfRuns = None
-    numberOfUntimedRuns = None
 
     @property
     def possibleStringValues(self):
@@ -114,15 +113,76 @@ class Korean235StyleSettings(KoreanStyleSettings):
     koreanRunsSettings = [Korean2RunSettings, Korean3RunSettings, Korean5RunSettings]
 
 
-class FFEClub1HungarianRunSettings(RunSettings):
+class FFEStyleSettings(StyleSettings):
+
+    runsSettings = []
+
+    def createRunSettings(self):
+        for runSetting in self.runsSettings:
+            for __ in range(runSetting.numberOfRuns):
+                yield runSetting()
+
+
+class FFEWalkRunSettings(RunSettings):
     """
-    Parameters for a hungarian run
+    Parameters for walk runs in FFE competitions
+    """
+    timeBonus = 0
+    maxTimeBonus = 0
+    timeMalus = 0
+    multipleArrowsPerTarget = True
+    possibleValues = [2, 3, 4]
+
+
+class FFECanterRunSettings(RunSettings):
+    """
+    Parameters for times run in FFE competitions
+    """
+    @property
+    def eliminatingTime(self):
+        eliminatingTime = self.maxTime + 3
+
+    maxTimeBonus = 3
+
+
+class FFEWalkClub1RunSettings(FFEWalkRunSettings):
+    trackLength = 60
+    numberOfRuns = 1
+
+
+class FFEWalkClub2RunSettings(FFEWalkRunSettings):
+    trackLength = 40
+    numberOfRuns = 2
+
+
+class FFEClub1HungarianRunSettings(FFECanterRunSettings):
+    """
+    Parameters for a hungarian run, FFE Club 1 flavour
     """
     trackLength = 60
     maxTime = 12
-    eliminatingTime = 12
     timeBonus = 1
     multipleArrowsPerTarget = True
     numberOfTargets = 1
     possibleValues = [2, 3, 4]
-    numberOfRuns = 9
+    numberOfRuns = 5
+
+
+class FFEClub1Korean1RunSettings(Korean1RunSettings):
+    trackLength = 60
+    maxTime = 10
+    numberOfRuns = 4
+
+
+class FFEClub1Korean3RunSettings(Korean3RunSettings):
+    trackLength = 60
+    maxTime = 10
+    numberOfRuns = 2
+
+
+class FFEClub1HungarianStyleSetting(FFEStyleSettings):
+    runsSettings = [FFEWalkClub1RunSettings, FFEClub1HungarianRunSettings]
+
+
+class FFEClub1KoreanStyleSetting(FFEStyleSettings):
+    runsSettings = [FFEClub1Korean1RunSettings, FFEClub1Korean3RunSettings]

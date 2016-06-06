@@ -1,0 +1,4 @@
+
+
+class NoMoreRuns(Exception):
+    pass

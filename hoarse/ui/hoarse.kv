@@ -59,7 +59,6 @@
 			text: "Hungarian style"
 			name: "hungarian"
 			disabled: False
-			on_press: app.switch_screen('hungarian-settings')
 		StyleButton:
 			text: "Korean style"
 			name: "korean"
@@ -203,15 +202,19 @@
 
 	Label:
 		size_hint: (.3, .1)
-		pos_hint: {'top': .85, 'x':.2}
+		pos_hint: {'top': .90, 'x':.2}
+		text: root.group_text
+	Label:
+		size_hint: (.3, .1)
+		pos_hint: {'top': .83, 'x':.2}
 		text: root.competitor_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint: {'top': .75, 'x':.2}
+		pos_hint: {'top': .76, 'x':.2}
 		text: root.run_text
 	Label:
 		size_hint: (.3, .1)
-		pos_hint: {'top': .65, 'x':.2}
+		pos_hint: {'top': .69, 'x':.2}
 		text: root.score_text
 
 	Label:
