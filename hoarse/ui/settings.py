@@ -26,6 +26,8 @@ class StyleButton(Button):
         run_screen.test = test
         run_screen.run = test.getFirstUncompletedRun()
 
+        # TODO proper indexation
+        # TODO this validate should happen after the setting screen
         app.switch_screen('hungarian-settings')
         # app.switch_screen("run-screens")
 
@@ -37,7 +39,9 @@ class StyleMenu(BoxLayout):
 class SettingsMenu(StackLayout):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        field = SettingField("nruns", "Number of runs", 0)
+        field = SettingField("nruns", "Number of runs", 9)
+        self.add_widget(field)
+        field = SettingField("maxtime", "Maximum time", 0)
         self.add_widget(field)
 
 
@@ -48,6 +52,7 @@ class SubstyleKoreanMenu(BoxLayout):
 class HungarianSettingsMenu(SettingsMenu):
     def setValues(self, styleSettings):
         self.ids['nruns'].setValue(styleSettings.numberOfRuns)
+        self.ids['maxtime'].setValue(styleSettings.maxTime)
 
 
 class SettingField(BoxLayout):

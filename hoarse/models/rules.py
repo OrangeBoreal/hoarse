@@ -6,6 +6,7 @@ class RunSettings(object):
     """
     trackLength = None
     maxTime = None
+    speed = None
     eliminatingTime = None
     timeBonus = None
     maxTimeBonus = None
@@ -19,6 +20,16 @@ class RunSettings(object):
     @property
     def possibleStringValues(self):
         return ["{}".format(value) for value in self.possibleValues]
+
+    @property
+    def setSpeed(self):
+        if (self.trackLength is not None) and (self.maxTime is not None):
+            self.speed = self.trackLength / self.maxTime
+
+    @property
+    def setMaxTime(self):
+        if (self.speed is not None) and (self.trackLength is not None):
+            self.maxTime = self.speed * self.trackLength
 
 
 class StyleSettings(object):
@@ -131,7 +142,7 @@ class FFEWalkRunSettings(RunSettings):
     maxTimeBonus = 0
     timeMalus = 0
     multipleArrowsPerTarget = True
-    possibleValues = [2, 3, 4]
+    possibleValues = [0, 2, 3, 4]
 
 
 class FFECanterRunSettings(RunSettings):
@@ -149,32 +160,23 @@ class FFEWalkClub1RunSettings(FFEWalkRunSettings):
     trackLength = 60
     numberOfRuns = 1
 
-
-class FFEWalkClub2RunSettings(FFEWalkRunSettings):
-    trackLength = 40
-    numberOfRuns = 2
-
-
-class FFEClub1HungarianRunSettings(FFECanterRunSettings):
+class FFEClub1HungarianRunSettings(HungarianRunSettings, FFECanterRunSettings):
     """
     Parameters for a hungarian run, FFE Club 1 flavour
     """
     trackLength = 60
     maxTime = 12
     timeBonus = 1
-    multipleArrowsPerTarget = True
-    numberOfTargets = 1
-    possibleValues = [2, 3, 4]
     numberOfRuns = 5
 
 
-class FFEClub1Korean1RunSettings(Korean1RunSettings):
+class FFEClub1Korean1RunSettings(Korean1RunSettings, FFECanterRunSettings):
     trackLength = 60
     maxTime = 10
     numberOfRuns = 4
 
 
-class FFEClub1Korean3RunSettings(Korean3RunSettings):
+class FFEClub1Korean3RunSettings(Korean3RunSettings, FFECanterRunSettings):
     trackLength = 60
     maxTime = 10
     numberOfRuns = 2
@@ -186,3 +188,15 @@ class FFEClub1HungarianStyleSetting(FFEStyleSettings):
 
 class FFEClub1KoreanStyleSetting(FFEStyleSettings):
     runsSettings = [FFEClub1Korean1RunSettings, FFEClub1Korean3RunSettings]
+
+class FFEWalkClub2RunSettings(FFEWalkRunSettings):
+    trackLength = 40
+    numberOfRuns = 2
+
+class FFECanterClub2RunSettings(FFECanterRunSettings):
+    trackLength = 40
+    maxTime = 8
+    numberOfRuns = 4
+
+class FFEClub2StyleSetting(FFEStyleSettings):
+    runsSettings = [FFEWalkClub2RunSettings, FFECanterClub2RunSettings]
